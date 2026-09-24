@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary-green: #146c43;
+    --primary-green-hover: #0f5434;
+    --primary-green-light: #f0f7f3;
+    --text-dark: #1f2937;
+    --text-muted: #4b5563;
+    --text-light: #6b7280;
+    --border-color: #d1d5db;
+    --border-light: #e5e7eb;
+    --bg-white: #ffffff;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    background-color: #fbfbfb;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   Header & Navbar Styling
+   ========================================================================== */
+
+.header {
+    background-color: var(--bg-white);
+    width: 100%;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: var(--bg-white);
+}
+
+.navbar-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* 1. Brand Logo */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+}
+
+.brand-logo .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo .logo-text {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.6px;
+    line-height: 1;
+}
+
+.brand-logo .brand-b {
+    color: var(--primary-green);
+}
+
+/* 2. Main Navigation Menu */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: var(--text-muted) !important;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none !important;
+    padding: 6px 2px;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-green) !important;
+}
+
+/* 3. Right Action Tools */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+}
+
+/* Valuation Tool Button */
+.btn-valuation {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background-color: var(--bg-white);
+    border: 1.5px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-dark) !important;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none !important;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-valuation .action-icon {
+    stroke: var(--primary-green);
+    width: 20px;
+    height: 20px;
+    transition: stroke 0.2s ease;
+}
+
+.btn-valuation:hover {
+    border-color: var(--primary-green);
+    background-color: var(--primary-green-light);
+    color: var(--primary-green) !important;
+}
+
+/* Post Property Button with FREE Badge */
+.post-property-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.badge-free {
+    position: absolute;
+    top: -9px;
+    left: 8px;
+    background-color: var(--bg-white);
+    border: 1.5px solid var(--primary-green);
+    color: var(--primary-green);
+    font-size: 10px;
+    font-weight: 800;
+    padding: 0.5px 5px;
+    border-radius: 3px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.btn-post-property {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-green);
+    color: #ffffff !important;
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-decoration: none !important;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap;
+}
+
+.btn-post-property:hover {
+    background-color: var(--primary-green-hover);
+    color: #ffffff !important;
+}
+
+/* Language Selector */
+.lang-selector {
+    display: inline-flex;
+    align-items: center;
+}
+
+.lang-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 6px 2px;
+    cursor: pointer;
+    color: var(--text-dark);
+    font-size: 13.5px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.lang-button .flag-icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.lang-button .flag-icon svg {
+    border-radius: 50%;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.lang-button .chevron-icon {
+    stroke: var(--text-light);
+    transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+.lang-button:hover {
+    color: var(--primary-green);
+}
+
+.lang-button:hover .chevron-icon {
+    stroke: var(--primary-green);
+    transform: translateY(1px);
+}
+
+/* Separator Divider */
+.nav-divider {
+    width: 1px;
+    height: 24px;
+    background-color: var(--border-light);
+    margin: 0 4px;
+}
+
+/* User Authentication Link */
+.nav-auth {
+    display: inline-flex;
+    align-items: center;
+}
+
+.auth-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dark) !important;
+    text-decoration: none !important;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.auth-link .user-icon {
+    stroke: var(--text-dark);
+    transition: stroke 0.2s ease;
+}
+
+.auth-link:hover {
+    color: var(--primary-green) !important;
+}
+
+.auth-link:hover .user-icon {
+    stroke: var(--primary-green);
+}
+.mobile-post-property {
+    display: none;
+}
+.mobile-nav-auth {
+    display: none;
+}
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+
+    .nav-menu {
+        gap: 16px;
+    }
+
+    .navbar-container {
+        padding: 0 16px;
+    }
+
+    .nav-actions {
+        gap: 12px;
+    }
+}
+
+
+@media (max-width: 992px) {
+
+    .navbar-container {
+        height: auto;
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-menu {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        gap: 18px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .btn-post-property {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 640px) {
+
+    .btn-valuation span {
+        display: none;
+    }
+
+    .btn-valuation {
+        padding: 8px 10px;
+    }
+
+    .btn-post-property {
+        padding: 8px 12px;
+        font-size: 12.5px;
+    }
+
+    .badge-free {
+        font-size: 9px;
+        top: -8px;
+        left: 4px;
+    }
+
+    .auth-link span {
+        font-size: 12.5px;
+    }
+}
+
+
+/* ==========================================================================
+   Notification
+   ========================================================================== */
+
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #c5e10d;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.notification-button svg {
+    width: 22px;
+    height: 22px;
+}
+
+.notification-button:hover {
+    color: #4da3ff;
+}
+
+.notification-badge {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 50%;
+    background: #dc3545;
+    color: rgb(255, 255, 255);
+    font-size: 9px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==========================================================================
+   Mobile Menu Button
+   ========================================================================== */
+
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #333;
+    margin: 5px 0;
+    transition: 0.3s ease;
+}
+
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar-container {
+        min-height: 70px;
+        flex-wrap: wrap;
+        padding: 0 18px;
+    }
+
+    /* Hamburger */
+    .mobile-menu-toggle {
+        display: block;
+        order: 1;
+    }
+
+    /* Logo */
+    .navbar-brand {
+        order: 2;
+        margin-right: auto;
+    }
+
+    /* Right actions */
+    .nav-actions {
+        order: 3;
+        margin-left: auto;
+    }
+
+    /* Mobile Navigation */
+    .nav-menu {
+        display: none;
+        width: 100%;
+        order: 4;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 15px 0 0;
+        margin: 0;
+        border-top: 1px solid #eee;
+        overflow: visible;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        width: 100%;
+        padding: 12px 5px;
+    }
+
+    /* =========================================
+       Mobile Post Property
+       ========================================= */
+
+    .mobile-post-property {
+        display: none;
+        width: 100%;
+        order: 5;
+        padding: 15px 0 20px;
+    }
+
+    /* Menu open হলে Post Property দেখাবে */
+    .nav-menu.active + .mobile-post-property {
+        display: block;
+    }
+
+    .mobile-post-property .btn-post-property {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Desktop Post Property hide */
+    .post-property-wrapper {
+        display: none;
+    }
+
+    /* Divider */
+    .nav-divider {
+        display: none;
+    }
+
+    /* Authentication */
+    .nav-auth {
+        display: none;
+    }
+
+    .nav-menu.active ~ .mobile-nav-auth {
+        display: block;
+        width: 100%;
+        order: 6;
+        padding: 0 0 20px;
+    }
+
+    .mobile-auth-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 12px 5px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        border-top: 1px solid #eee;
+    }
+
+    .mobile-auth-link:hover {
+        color: #146c43;
+    }
+
+    .mobile-auth-link svg {
+        flex-shrink: 0;
+    }
+
+    /* Notification */
+    .notification-wrapper {
+        display: block;
+    }
+}
+
+
+/* ==========================================================================
+   Small Mobile
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+    .navbar-container {
+        padding: 0 14px;
+    }
+
+    .logo-text {
+        font-size: 21px;
+    }
+
+    .logo-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .notification-button {
+        padding: 5px;
+    }
+
+    .notification-button svg {
+        width: 20px;
+        height: 20px;
+    }
+}

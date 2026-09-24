@@ -1,0 +1,272 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Property Rental</title>
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
+</head>
+
+<body>
+
+<div class="register-wrapper">
+
+    <div class="register-card">
+
+        <div class="row g-0">
+
+            <!-- ================= LEFT SECTION ================= -->
+            <div class="col-lg-5">
+
+                <div class="register-info">
+
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+
+                    <h1>Find Your Next Home</h1>
+
+                    <p>
+                        Create your account and explore properties,
+                        manage rental requests, and connect with property owners.
+                    </p>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Browse available properties</span>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Send rental requests</span>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Manage your rental activities</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT SECTION ================= -->
+            <div class="col-lg-7">
+
+                <div class="register-form">
+
+                    <div class="form-title">
+                        <h2>Create Account</h2>
+                        <p>
+                            Enter your basic information to get started.
+                        </p>
+                    </div>
+
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <!-- Username -->
+                        <div class="mb-3">
+
+                            <label
+                                class="form-label"
+                                for="{{ form.username.id_for_label }}"
+                            >
+                                Username
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+
+                                {{ form.username }}
+
+                            </div>
+
+                            {% if form.username.errors %}
+                                {{ form.username.errors }}
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Email -->
+                        <div class="mb-3">
+
+                            <label
+                                class="form-label"
+                                for="{{ form.email.id_for_label }}"
+                            >
+                                Email Address
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </span>
+
+                                {{ form.email }}
+
+                            </div>
+
+                            {% if form.email.errors %}
+                                {{ form.email.errors }}
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Role -->
+                        <div class="mb-3">
+
+                            <label
+                                class="form-label"
+                                for="{{ form.role.id_for_label }}"
+                            >
+                                Account Type
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-users"></i>
+                                </span>
+
+                                {{ form.role }}
+
+                            </div>
+
+                            <div class="help-text">
+                                Choose whether you are a property owner or tenant.
+                            </div>
+
+                            {% if form.role.errors %}
+                                {{ form.role.errors }}
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Password -->
+                        <div class="mb-3">
+
+                            <label
+                                class="form-label"
+                                for="{{ form.password1.id_for_label }}"
+                            >
+                                Password
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-lock"></i>
+                                </span>
+
+                                {{ form.password1 }}
+
+                            </div>
+
+                            {% if form.password1.errors %}
+                                {{ form.password1.errors }}
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Confirm Password -->
+                        <div class="mb-4">
+
+                            <label
+                                class="form-label"
+                                for="{{ form.password2.id_for_label }}"
+                            >
+                                Confirm Password
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-lock"></i>
+                                </span>
+
+                                {{ form.password2 }}
+
+                            </div>
+
+                            {% if form.password2.errors %}
+                                {{ form.password2.errors }}
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Form Errors -->
+                        {% if form.non_field_errors %}
+
+                            <div class="alert alert-danger">
+                                {{ form.non_field_errors }}
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- Submit -->
+                        <button
+                            type="submit"
+                            class="register-btn"
+                        >
+                            <i class="fa-solid fa-user-plus me-2"></i>
+                            Create Account
+                        </button>
+
+                    </form>
+
+
+                    <!-- Login Link -->
+                    <div class="login-link">
+
+                        Already have an account?
+
+                        <a href="">
+                            Login here
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

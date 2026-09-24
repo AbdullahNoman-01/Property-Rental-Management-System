@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Property Rental & Management System{% endblock %}</title>
+    
+    {% block extra_css %}
+    <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        >
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        >
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <div class="navbar-container">
+                <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- 1. Brand Logo -->
+                <div class="navbar-brand">
+                    <a href="/" class="brand-logo" aria-label="bproperty home">
+                        <!-- Logo Icon & Text -->
+                        <span class="logo-icon">
+                            <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4L4 16H9V34H19V24H21V34H31V16H36L20 4Z" fill="#146c43"/>
+                            </svg>
+                        </span>
+                        <span class="logo-text"><span class="brand-b">Rent</span>Nest</span>
+                    </a>
+                </div>
+
+                <!-- 2. Main Navigation Links -->
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Advertise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+                <!-- Mobile Post Property -->
+                <div class="mobile-post-property">
+                    <a href="#" class="btn-post-property">POST PROPERTY</a>
+                </div>
+                <!-- Mobile Authentication -->
+                <div class="mobile-nav-auth">
+                    {% if user.is_authenticated %}
+                        <a href="#" class="mobile-auth-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>{{ user.username }}</span>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="mobile-auth-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>SIGN IN / SIGN UP</span>
+                        </a>
+                    {% endif %}
+                </div>
+
+                <!-- 3. Right Side Actions & Tools -->
+                <div class="nav-actions">
+                    <!-- Post Property Button with 'FREE' Badge -->
+                    <div class="post-property-wrapper">
+                        {% comment %} <span class="badge-free">FREE</span> {% endcomment %}
+                        <a href="#" class="btn-post-property">POST PROPERTY</a>
+                    </div>
+
+                    <!-- Notification -->
+                    <div class="notification-wrapper">
+                        <button type="button" class="notification-button" aria-label="Notifications">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 8C18 4.686 15.314 2 12 2C8.686 2 6 4.686 6 8C6 12.5 4 14 4 16H20C20 14 18 12.5 18 8Z"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                                <path d="M10 20C10.4 21.2 11.1 22 12 22C12.9 22 13.6 21.2 14 20"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"/>
+                            </svg>
+
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+
+                    <!-- Vertical Separator Divider -->
+                    <div class="nav-divider" aria-hidden="true"></div>
+
+                    <!-- User Authentication / Profile Link -->
+                    <div class="nav-auth">
+                        {% if user.is_authenticated %}
+                            <a href="#" class="auth-link">
+                                <!-- User Icon -->
+                                <svg class="user-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                <span>{{ user.username }}</span>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'register' %}" class="auth-link">
+                                <!-- User Icon -->
+                                <svg class="user-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                <span>SIGN IN/SIGN UP</span>
+                            </a>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- MAIN CONTENT BLOCK                             -->
+    <!-- ============================================== -->
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- ============================================== -->
+    <!-- FOOTER BLOCK (OPTIONAL)                        -->
+    <!-- ============================================== -->
+    {% include "footer.html" %}
+
+    <script src="{% static 'js/base.js' %}"></script>
+    {% block extra_js %}
+    <!-- Custom JavaScript can be linked here -->
+    {% endblock %}
+</body>
+</html>

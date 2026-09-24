@@ -1,0 +1,99 @@
+{% load static %}
+<!-- ============================================== -->
+<!-- SITE FOOTER                                    -->
+<!-- ============================================== -->
+ {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+ {% endblock extra_css %}
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <!-- Main Footer Columns -->
+        <div class="footer-main">
+
+            <!-- Column 1: Brand & Contact Info & Socials -->
+            <div class="footer-col footer-col-brand">
+                <!-- White Brand Logo -->
+                <a href="/" class="footer-logo" aria-label="bproperty home">
+                    <span class="footer-logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4L4 16H9V34H19V24H21V34H31V16H36L20 4Z" fill="#ffffff"/>
+                        </svg>
+                    </span>
+                    <span class="footer-logo-text">RentNest</span>
+                </a>
+
+                <!-- Contact Details -->
+                <div class="footer-contact-info">
+                    <p class="contact-item">Address: Dhanmondi, Dhaka, Bangladesh</p>
+                    <p class="contact-item">Postcode: 1215</p>
+                    <p class="contact-item">
+                        Email: <a href="mailto:contact@bproperty.com" class="email-link">contact@rentnext.com</a>
+                    </p>
+                </div>
+
+                <!-- Socials Section -->
+                <div class="footer-socials">
+                    <h4 class="socials-title">SOCIALS</h4>
+                    <div class="social-icons">
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube" aria-label="YouTube">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <!-- Medium -->
+                        <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class="social-btn medium" aria-label="Medium">
+                            <span class="medium-box">M</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Popular Searches -->
+            <div class="footer-col">
+                <h3 class="footer-heading">POPULAR SEARCHES</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Dhaka</a></li>
+                    <li><a href="#" class="footer-link">Jamalpur</a></li>
+                    <li><a href="#" class="footer-link">Dhanmondi</a></li>
+                    <li><a href="#" class="footer-link">Mohammadpur</a></li>
+                    <li><a href="#" class="footer-link">Chuadanga</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Homepress Markets -->
+            <div class="footer-col">
+                <h3 class="footer-heading">HOMEPRESS MARKETS</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Apartment for Rent Chuadanga</a></li>
+                    <li><a href="#" class="footer-link">Apartment for Rent Dhaka</a></li>
+                    <li><a href="#" class="footer-link">Rent House Dhaka</a></li>
+                    <li><a href="#" class="footer-link">Rent House Jamalpur</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Quick Links -->
+            <div class="footer-col">
+                <h3 class="footer-heading">QUICK LINKS</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#" class="footer-link">Rent</a></li>
+                    <li><a href="#" class="footer-link">Blog</a></li>
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottom Bar (Divider & Copyright) -->
+        <div class="footer-bottom">
+            <p class="copyright-text">
+                Copyright &copy; 2026 | <a href="#" class="policy-link">Terms &amp; Privacy</a> | All rights reserved
+            </p>
+        </div>
+
+    </div>
+</footer>
