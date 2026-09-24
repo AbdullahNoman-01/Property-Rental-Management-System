@@ -1,0 +1,512 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'accounts/css/profile_update.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="profile-update-page">
+
+    <div class="profile-update-container">
+
+        <!-- ================= HEADER ================= -->
+        <div class="update-header">
+
+            <div>
+                <span class="update-badge">
+                    <i class="fa-solid fa-user-pen"></i>
+                    Account Settings
+                </span>
+
+                <h1>Edit Profile</h1>
+
+                <p>
+                    Update your personal information and profile details.
+                </p>
+            </div>
+
+            <a href="{% url 'profile' %}" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Profile
+            </a>
+
+        </div>
+
+
+        <!-- ================= MAIN CARD ================= -->
+        <div class="profile-update-card">
+
+            <!-- ================= LEFT PROFILE ================= -->
+            <div class="profile-sidebar">
+
+                <div class="sidebar-shape shape-one"></div>
+                <div class="sidebar-shape shape-two"></div>
+
+                <div class="profile-preview">
+
+                    <!-- CURRENT IMAGE -->
+                    <div class="image-wrapper">
+
+                        {% if user.profile_image %}
+                            <img
+                                src="{{ user.profile_image.url }}"
+                                alt="{{ user.username }}"
+                                id="profilePreview"
+                                class="profile-image"
+                            >
+                        {% else %}
+                            <div
+                                id="profilePreview"
+                                class="profile-image profile-letter"
+                            >
+                                {{ user.username|first|upper }}
+                            </div>
+                        {% endif %}
+
+                        <div class="camera-icon">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+
+                    </div>
+
+
+                    <h2>
+                        {{ user.get_full_name|default:user.username }}
+                    </h2>
+
+                    <p class="username">
+                        @{{ user.username }}
+                    </p>
+
+                    <div class="active-status">
+                        <span></span>
+                        Active Account
+                    </div>
+
+
+                    <!-- QUICK INFO -->
+                    <div class="quick-info">
+
+                        <div class="quick-item">
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </div>
+
+                            <div>
+                                <small>Member Since</small>
+                                <strong>
+                                    {{ user.date_joined|date:"M Y" }}
+                                </strong>
+                            </div>
+                        </div>
+
+
+                        <div class="quick-item">
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+
+                            <div>
+                                <small>Email</small>
+                                <strong>
+                                    {% if user.email %}
+                                        Added
+                                    {% else %}
+                                        Not Added
+                                    {% endif %}
+                                </strong>
+                            </div>
+                        </div>
+
+
+                        <div class="quick-item">
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+
+                            <div>
+                                <small>Location</small>
+                                <strong>
+                                    {% if user.city %}
+                                        {{ user.city }}
+                                    {% else %}
+                                        Not Added
+                                    {% endif %}
+                                </strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FORM SECTION ================= -->
+            <div class="profile-form-section">
+
+                <div class="section-heading">
+
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+
+                    <div>
+                        <h3>Personal Information</h3>
+                        <p>
+                            Keep your account information up to date.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="profile-form"
+                >
+
+                    {% csrf_token %}
+
+
+                    <!-- FORM ERRORS -->
+                    {% if form.non_field_errors %}
+
+                        <div class="form-error">
+
+                            <i class="fa-solid fa-circle-exclamation"></i>
+
+                            <div>
+                                {% for error in form.non_field_errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+
+                    {% endif %}
+
+
+                    <!-- ================= PROFILE IMAGE ================= -->
+                    <div class="image-upload-section">
+
+                        <div class="upload-title">
+                            <i class="fa-solid fa-image"></i>
+
+                            <div>
+                                <strong>Profile Picture</strong>
+                                <span>Choose a new image for your profile</span>
+                            </div>
+                        </div>
+
+
+                        <div class="image-upload-box">
+
+                            <div class="upload-preview">
+
+                                {% if user.profile_image %}
+                                    <img
+                                        src="{{ user.profile_image.url }}"
+                                        alt="Profile"
+                                        id="uploadPreview"
+                                    >
+                                {% else %}
+                                    <div
+                                        class="upload-letter"
+                                        id="uploadPreview"
+                                    >
+                                        {{ user.username|first|upper }}
+                                    </div>
+                                {% endif %}
+
+                            </div>
+
+
+                            <div class="upload-content">
+
+                                <label
+                                    for="{{ form.profile_image.id_for_label }}"
+                                    class="choose-image-btn"
+                                >
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    Choose Image
+                                </label>
+
+                                {{ form.profile_image }}
+
+                                <p>
+                                    JPG, JPEG or PNG. Recommended size
+                                    500 × 500px.
+                                </p>
+
+                                {% if form.profile_image.errors %}
+                                    <div class="field-error">
+                                        {% for error in form.profile_image.errors %}
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= BASIC INFORMATION ================= -->
+                    <div class="form-section-title">
+                        <i class="fa-solid fa-user"></i>
+                        Basic Information
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <!-- FIRST NAME -->
+                        <div class="form-group">
+
+                            <label for="{{ form.first_name.id_for_label }}">
+                                First Name
+                            </label>
+
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user"></i>
+                                {{ form.first_name }}
+                            </div>
+
+                            {% if form.first_name.errors %}
+                                <div class="field-error">
+                                    {% for error in form.first_name.errors %}
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- LAST NAME -->
+                        <div class="form-group">
+
+                            <label for="{{ form.last_name.id_for_label }}">
+                                Last Name
+                            </label>
+
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user-tag"></i>
+                                {{ form.last_name }}
+                            </div>
+
+                            {% if form.last_name.errors %}
+                                <div class="field-error">
+                                    {% for error in form.last_name.errors %}
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL + PHONE -->
+                    <div class="form-row">
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+
+                            <label for="{{ form.email.id_for_label }}">
+                                Email Address
+                            </label>
+
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope"></i>
+                                {{ form.email }}
+                            </div>
+
+                            {% if form.email.errors %}
+                                <div class="field-error">
+                                    {% for error in form.email.errors %}
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- PHONE -->
+                        <div class="form-group">
+
+                            <label for="{{ form.phone.id_for_label }}">
+                                Phone Number
+                            </label>
+
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone"></i>
+                                {{ form.phone }}
+                            </div>
+
+                            {% if form.phone.errors %}
+                                <div class="field-error">
+                                    {% for error in form.phone.errors %}
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= LOCATION ================= -->
+                    <div class="form-section-title location-title">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Location
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <!-- ADDRESS -->
+                        <div class="form-group">
+
+                            <label for="{{ form.address.id_for_label }}">
+                                Address
+                            </label>
+
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-house"></i>
+                                {{ form.address }}
+                            </div>
+
+                            {% if form.address.errors %}
+                                <div class="field-error">
+                                    {% for error in form.address.errors %}
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- CITY -->
+                        <div class="form-group">
+
+                            <label for="{{ form.city.id_for_label }}">
+                                City
+                            </label>
+
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-city"></i>
+                                {{ form.city }}
+                            </div>
+
+                            {% if form.city.errors %}
+                                <div class="field-error">
+                                    {% for error in form.city.errors %}
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= BIO ================= -->
+                    <div class="form-section-title">
+                        <i class="fa-solid fa-align-left"></i>
+                        About You
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="{{ form.bio.id_for_label }}">
+                            Bio
+                        </label>
+
+                        <div class="textarea-wrapper">
+                            <i class="fa-solid fa-pen"></i>
+                            {{ form.bio }}
+                        </div>
+
+                        {% if form.bio.errors %}
+                            <div class="field-error">
+                                {% for error in form.bio.errors %}
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- ================= SECURITY ================= -->
+                    <div class="security-note">
+
+                        <div class="security-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div>
+                            <strong>Your information is protected</strong>
+
+                            <p>
+                                Your profile details are stored securely
+                                and used only for your account.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= BUTTONS ================= -->
+                    <div class="form-actions">
+
+                        <a href="{% url 'profile' %}" class="cancel-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                            Cancel
+                        </a>
+
+                        <button type="submit" class="save-btn">
+                            <i class="fa-solid fa-check"></i>
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= IMAGE PREVIEW JS ================= -->
+<script src="{% static 'accounts/js/profile_update.js' %}"></script>
+
+{% endblock %}
+

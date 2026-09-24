@@ -1,8 +1,8 @@
-/* ========================================
-   REGISTER PAGE
-======================================== */
+/* ================================
+   LOGIN PAGE
+================================ */
 
-.register-wrapper {
+.login-wrapper {
     min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
@@ -11,35 +11,33 @@
     background: #f5f8f6;
 }
 
-/* ========================================
-   REGISTER CARD
-======================================== */
+/* ================================
+   LOGIN CARD
+================================ */
 
-.register-card {
+.login-card {
     width: 100%;
-    max-width: 1050px;
+    max-width: 1000px;
+    min-height: 560px;
+    display: grid;
+    grid-template-columns: 42% 58%;
     background: #ffffff;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.10);
 }
 
-/* ========================================
-   LEFT SECTION
-======================================== */
+/* ================================
+   LEFT SIDE
+================================ */
 
-.register-info {
-    height: 100%;
-    min-height: 650px;
-
+.login-info {
     padding: 55px 45px;
-
     background: linear-gradient(
         145deg,
         #146c43,
         #0d5434
     );
-
     color: #ffffff;
 
     display: flex;
@@ -50,135 +48,122 @@
 .brand-icon {
     width: 58px;
     height: 58px;
+    border-radius: 15px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 25px;
-
-    border-radius: 15px;
-
     background: rgba(255, 255, 255, 0.14);
     border: 1px solid rgba(255, 255, 255, 0.20);
+
+    margin-bottom: 25px;
 }
 
 .brand-icon i {
     font-size: 25px;
 }
 
-.register-info h1 {
+.login-info h1 {
     margin: 0 0 15px;
-
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 700;
-    line-height: 1.2;
+    letter-spacing: -0.5px;
 }
 
-.register-info > p {
-    max-width: 390px;
-
+.login-info > p {
     margin: 0 0 35px;
-
     color: rgba(255, 255, 255, 0.82);
-
     font-size: 15px;
     line-height: 1.7;
+    max-width: 360px;
 }
 
-/* ========================================
+/* ================================
    FEATURES
-======================================== */
+================================ */
 
 .feature {
     display: flex;
     align-items: center;
-
     gap: 13px;
-
-    margin-bottom: 18px;
-
-    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 20px;
 
     font-size: 14px;
+    color: rgba(255, 255, 255, 0.92);
 }
 
 .feature i {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    flex-shrink: 0;
-
     border-radius: 10px;
-
     background: rgba(255, 255, 255, 0.12);
 
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .feature:last-child {
     margin-bottom: 0;
 }
 
-/* ========================================
-   RIGHT SECTION
-======================================== */
+/* ================================
+   RIGHT SIDE
+================================ */
 
-.register-form {
-    padding: 50px 55px;
+.login-form {
+    padding: 55px 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* ========================================
+/* ================================
    FORM TITLE
-======================================== */
+================================ */
 
 .form-title {
-    margin-bottom: 28px;
+    margin-bottom: 30px;
 }
 
 .form-title h2 {
     margin: 0 0 8px;
-
-    color: #222222;
-
+    color: #222;
     font-size: 30px;
     font-weight: 700;
 }
 
 .form-title p {
     margin: 0;
-
-    color: #777777;
-
+    color: #777;
     font-size: 14px;
 }
 
-/* ========================================
+/* ================================
    LABEL
-======================================== */
+================================ */
 
-.register-form .form-label {
-    margin-bottom: 7px;
-
-    color: #333333;
-
+.form-label {
+    margin-bottom: 8px;
+    color: #333;
     font-size: 14px;
     font-weight: 600;
 }
 
-/* ========================================
+/* ================================
    INPUT GROUP
-======================================== */
+================================ */
 
-.register-form .input-group {
-    height: 48px;
+.input-group {
+    height: 50px;
 }
 
-.register-form .input-group-text {
+.input-group-text {
     width: 48px;
 
     display: flex;
@@ -186,90 +171,61 @@
     justify-content: center;
 
     background: #f6f8f7;
-
     border: 1px solid #dfe5e1;
     border-right: none;
 
     color: #146c43;
 }
 
-.register-form .input-group-text i {
-    font-size: 14px;
+.input-group-text i {
+    font-size: 15px;
 }
 
-.register-form .input-group .form-control,
-.register-form .input-group select {
-    height: 48px;
+.input-group .form-control {
+    height: 50px;
 
     border: 1px solid #dfe5e1;
     border-left: none;
 
     box-shadow: none;
-
     font-size: 14px;
 }
 
-.register-form .input-group .form-control:focus,
-.register-form .input-group select:focus {
+.input-group .form-control:focus {
     border-color: #146c43;
-
     box-shadow: 0 0 0 3px rgba(20, 108, 67, 0.10);
 }
 
-.register-form .input-group:focus-within .input-group-text {
+.input-group:focus-within .input-group-text {
     border-color: #146c43;
 }
 
-/* ========================================
-   ROLE SELECT
-======================================== */
-
-.register-form select {
-    cursor: pointer;
-    background-color: #ffffff;
-}
-
-/* ========================================
-   HELP TEXT
-======================================== */
-
-.help-text {
-    margin-top: 6px;
-
-    color: #888888;
-
-    font-size: 12px;
-    line-height: 1.5;
-}
-
-/* ========================================
+/* ================================
    FORM ERRORS
-======================================== */
+================================ */
 
-.register-form ul.errorlist {
-    margin: 6px 0 0;
+.login-form .text-danger,
+.login-form ul.errorlist {
+    margin: 7px 0 0;
     padding: 0;
 
     list-style: none;
 
     color: #dc3545;
-
-    font-size: 12px;
-}
-
-.register-form .alert {
-    margin-bottom: 20px;
-
-    border-radius: 9px;
-
     font-size: 13px;
 }
 
-/* ========================================
-   REGISTER BUTTON
-======================================== */
+.login-form .alert {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 13px;
+}
 
-.register-btn {
+/* ================================
+   LOGIN BUTTON
+================================ */
+
+.login-btn {
     width: 100%;
     height: 50px;
 
@@ -287,95 +243,97 @@
     transition: all 0.25s ease;
 }
 
-.register-btn:hover {
+.login-btn:hover {
     background: #0d5434;
-
     transform: translateY(-1px);
-
     box-shadow: 0 8px 18px rgba(20, 108, 67, 0.20);
 }
 
-.register-btn:active {
+.login-btn:active {
     transform: translateY(0);
 }
 
-/* ========================================
-   LOGIN LINK
-======================================== */
+/* ================================
+   REGISTER LINK
+================================ */
 
-.login-link {
-    margin-top: 22px;
+.register-link {
+    margin-top: 25px;
 
     text-align: center;
 
-    color: #777777;
-
+    color: #777;
     font-size: 14px;
 }
 
-.login-link a {
+.register-link a {
     color: #146c43;
-
     font-weight: 600;
-
     text-decoration: none;
 
     transition: color 0.2s ease;
 }
 
-.login-link a:hover {
+.register-link a:hover {
     color: #0d5434;
     text-decoration: underline;
 }
 
-/* ========================================
+/* ================================
    TABLET
-======================================== */
+================================ */
 
-@media (max-width: 991px) {
+@media (max-width: 850px) {
 
-    .register-wrapper {
-        padding: 35px 20px;
+    .login-card {
+        grid-template-columns: 1fr;
+        max-width: 600px;
     }
 
-    .register-info {
-        min-height: auto;
+    .login-info {
         padding: 40px;
     }
 
-    .register-info h1 {
+    .login-info h1 {
         font-size: 32px;
     }
 
-    .register-form {
+    .login-info > p {
+        margin-bottom: 25px;
+    }
+
+    .feature {
+        margin-bottom: 14px;
+    }
+
+    .login-form {
         padding: 45px 40px;
     }
 }
 
-/* ========================================
+/* ================================
    MOBILE
-======================================== */
+================================ */
 
 @media (max-width: 576px) {
 
-    .register-wrapper {
+    .login-wrapper {
         min-height: calc(100vh - 70px);
-
         padding: 25px 15px;
     }
 
-    .register-card {
+    .login-card {
         border-radius: 15px;
+        min-height: auto;
     }
 
-    .register-info {
-        padding: 32px 25px;
+    .login-info {
+        padding: 30px 25px;
     }
 
     .brand-icon {
         width: 50px;
         height: 50px;
-
         margin-bottom: 18px;
     }
 
@@ -383,14 +341,13 @@
         font-size: 21px;
     }
 
-    .register-info h1 {
+    .login-info h1 {
         font-size: 27px;
     }
 
-    .register-info > p {
+    .login-info > p {
         font-size: 13px;
         line-height: 1.6;
-
         margin-bottom: 22px;
     }
 
@@ -404,12 +361,12 @@
         height: 32px;
     }
 
-    .register-form {
+    .login-form {
         padding: 35px 25px;
     }
 
     .form-title {
-        margin-bottom: 24px;
+        margin-bottom: 25px;
     }
 
     .form-title h2 {
@@ -420,10 +377,11 @@
         font-size: 13px;
     }
 
-    .login-link {
+    .register-link {
         font-size: 13px;
     }
 }
+
 
 /* ===============================
    CUSTOM DJANGO MESSAGE ALERT
