@@ -206,8 +206,8 @@ SECRET_KEY=your-django-super-secret-key-here
 DEBUG=True
 
 # Database Configuration (PostgreSQL or SQLite)
-ENGINE=django.db.backends.sqlite3
-NAME=db.sqlite3
+ENGINE=django.db.backends.postgresql
+NAME=db.postgres
 USER=
 PASSWORD=
 HOST=
