@@ -1,0 +1,342 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tenant Dashboard | RentNest{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'dashboard/css/tenant_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="tenant-dashboard">
+
+    <!-- ================= HEADER ================= -->
+    <section class="tenant-header">
+
+        <div class="tenant-header-content">
+
+            <div>
+                <span class="dashboard-label">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Tenant Dashboard
+                </span>
+
+                <h1>Welcome back, {{ request.user.first_name|default:request.user.username }} 👋</h1>
+
+                <p>
+                    Manage your rental requests and keep track of your property applications.
+                </p>
+            </div>
+
+            <div class="header-icon">
+                <i class="fa-solid fa-house-user"></i>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATISTICS ================= -->
+    <section class="stats-grid">
+
+        <!-- Total -->
+        <div class="stat-card">
+
+            <div class="stat-icon total-icon">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div class="stat-content">
+                <span>Total Requests</span>
+                <h2>{{ total_requests }}</h2>
+                <small>All rental requests</small>
+            </div>
+
+        </div>
+
+
+        <!-- Pending -->
+        <div class="stat-card">
+
+            <div class="stat-icon pending-icon">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <div class="stat-content">
+                <span>Pending Requests</span>
+                <h2>{{ pending_requests }}</h2>
+                <small>Waiting for approval</small>
+            </div>
+
+        </div>
+
+
+        <!-- Accepted -->
+        <div class="stat-card">
+
+            <div class="stat-icon accepted-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="stat-content">
+                <span>Accepted Requests</span>
+                <h2>{{ accepted_requests }}</h2>
+                <small>Successfully accepted</small>
+            </div>
+
+        </div>
+
+
+        <!-- Rejected -->
+        <div class="stat-card">
+
+            <div class="stat-icon rejected-icon">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+
+            <div class="stat-content">
+                <span>Rejected Requests</span>
+                <h2>{{ rejected_requests }}</h2>
+                <small>Requests not accepted</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= REQUEST SECTION ================= -->
+    <section class="dashboard-section">
+
+        <div class="section-header">
+
+            <div>
+                <span class="section-label">
+                    Rental Activity
+                </span>
+
+                <h2>My Rental Requests</h2>
+
+                <p>
+                    Track all your property rental applications in one place.
+                </p>
+            </div>
+
+            <a href="{% url 'property_list' %}" class="browse-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Browse Properties
+            </a>
+
+        </div>
+
+
+        <!-- ================= REQUEST LIST ================= -->
+
+        <div class="requests-container">
+
+            {% for rental_request in rental_requests %}
+
+            <div class="request-card">
+
+                <!-- Property -->
+                <div class="property-info">
+
+                    <div class="property-image">
+
+                        {% if rental_request.property.image %}
+                            <img
+                                src="{{ rental_request.property.image.url }}"
+                                alt="{{ rental_request.property.title }}"
+                            >
+                        {% else %}
+                            <i class="fa-solid fa-house"></i>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="property-details">
+
+                        <h3>
+                            {{ rental_request.property.title }}
+                        </h3>
+
+                        <span class="property-location">
+                            <i class="fa-solid fa-location-dot"></i>
+                            {{ rental_request.property.location }}
+                        </span>
+
+                        <span class="property-type">
+                            <i class="fa-solid fa-building"></i>
+                            {{ rental_request.property.get_property_type_display }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Owner -->
+                <div class="request-info">
+
+                    <span class="info-label">
+                        Property Owner
+                    </span>
+
+                    <div class="owner-info">
+
+                        <div class="owner-avatar">
+                            {% if rental_request.property.owner.profile_image %}
+                                <img
+                                    src="{{ rental_request.property.owner.profile_image.url }}"
+                                    alt="{{ rental_request.property.owner.username }}"
+                                >
+                            {% else %}
+                                {{ rental_request.property.owner.username|first|upper }}
+                            {% endif %}
+                        </div>
+
+                        <strong>
+                            {{ rental_request.property.owner.username }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Rent -->
+                <div class="request-info">
+
+                    <span class="info-label">
+                        Monthly Rent
+                    </span>
+
+                    <strong class="rent">
+                        ৳{{ rental_request.property.monthly_rent|floatformat:0 }}
+                    </strong>
+
+                    <span class="rent-label">
+                        per month
+                    </span>
+
+                </div>
+
+
+                <!-- Date -->
+                <div class="request-info">
+
+                    <span class="info-label">
+                        Requested On
+                    </span>
+
+                    <strong>
+                        {{ rental_request.request_date|date:"d M Y" }}
+                    </strong>
+
+                    <span class="request-time">
+                        {{ rental_request.request_date|date:"h:i A" }}
+                    </span>
+
+                </div>
+
+
+                <!-- Status -->
+                <div class="request-info">
+
+                    <span class="info-label">
+                        Status
+                    </span>
+
+                    {% if rental_request.status == 'PENDING' %}
+
+                        <span class="status-badge pending">
+                            <i class="fa-solid fa-clock"></i>
+                            {{ rental_request.get_status_display }}
+                        </span>
+
+                    {% elif rental_request.status == 'ACCEPTED' %}
+
+                        <span class="status-badge accepted">
+                            <i class="fa-solid fa-circle-check"></i>
+                            {{ rental_request.get_status_display }}
+                        </span>
+
+                    {% elif rental_request.status == 'REJECTED' %}
+
+                        <span class="status-badge rejected">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                            {{ rental_request.get_status_display }}
+                        </span>
+
+                    {% else %}
+
+                        <span class="status-badge">
+                            {{ rental_request.get_status_display }}
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Actions -->
+                <div class="request-actions">
+
+                    <a
+                        href="{% url 'property_detail' rental_request.property.id %}"
+                        class="view-btn"
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        View
+                    </a>
+
+                    {% if rental_request.status == 'PENDING' %}
+
+                        <a
+                            href="{% url 'cancel_rental_request' rental_request.id %}"
+                            class="cancel-btn"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                            Cancel
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <!-- Empty State -->
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    <i class="fa-solid fa-file-circle-xmark"></i>
+                </div>
+
+                <h3>No Rental Requests Yet</h3>
+
+                <p>
+                    You haven't sent any rental requests yet.
+                    Find your ideal property and send a request to get started.
+                </p>
+
+                <a href="{% url 'property_list' %}" class="browse-empty-btn">
+                    <i class="fa-solid fa-house"></i>
+                    Explore Properties
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

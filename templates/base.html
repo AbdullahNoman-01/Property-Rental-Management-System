@@ -51,7 +51,10 @@
                 <!-- 2. Main Navigation Links -->
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="{% url 'home' %}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'property_list' %}" class="nav-link">Properties</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Advertise</a>
@@ -63,9 +66,37 @@
                         <a href="#" class="nav-link">Blog</a>
                     </li>
                 </ul>
+
+                <!-- Mobile Rental Requests -->
+                <div class="mobile-rental-requests">
+
+                    {% if user.is_authenticated %}
+
+                        {% if user.role == 'TENANT' %}
+
+                            <a href="{% url 'tenant_dashboard' %}"
+                            class="btn-rental-requests">
+                                Tenant_Dashboard
+                            </a>
+
+                        {% elif user.role == 'OWNER' %}
+
+                            <a href="{% url 'owner_dashboard' %}"
+                            class="btn-rental-requests">
+                                Owner Dashboard
+                            </a>
+
+                        {% endif %}
+
+                    {% endif %}
+
+                </div>
+
+
+                
                 <!-- Mobile Post Property -->
                 <div class="mobile-post-property">
-                    <a href="#" class="btn-post-property">POST PROPERTY</a>
+                    <a href="{% url 'property_create' %}" class="btn-post-property">POST PROPERTY</a>
                 </div>
                 <!-- Mobile Authentication -->
                 <div class="mobile-nav-auth">
@@ -100,15 +131,34 @@
 
                 <!-- 3. Right Side Actions & Tools -->
                 <div class="nav-actions">
+                    <div class="post-property-wrapper">
+                        {% if user.is_authenticated %}
+                            {% if user.role == 'TENANT' %}
+                                <a href="{% url 'tenant_dashboard' %}"
+                                class="btn-rental-requests">
+                                    Tenant Dashboard
+                                </a>
+                            {% elif user.role == 'OWNER' %}
+                                <a href="{% url 'owner_dashboard' %}"
+                                class="btn-rental-requests">
+                                    Owner Dashboard
+                                </a>
+                            {% endif %}
+
+                        {% endif %}
+                    </div>
+
                     <!-- Post Property Button with 'FREE' Badge -->
                     <div class="post-property-wrapper">
                         {% comment %} <span class="badge-free">FREE</span> {% endcomment %}
-                        <a href="#" class="btn-post-property">POST PROPERTY</a>
+                        <a href="{% url 'property_create' %}" class="btn-post-property">POST PROPERTY</a>
                     </div>
 
                     <!-- Notification -->
                     <div class="notification-wrapper">
-                        <button type="button" class="notification-button" aria-label="Notifications">
+                        <a href="{% url 'notifications' %}"
+                        class="notification-button"
+                        aria-label="Notifications">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18 8C18 4.686 15.314 2 12 2C8.686 2 6 4.686 6 8C6 12.5 4 14 4 16H20C20 14 18 12.5 18 8Z"
@@ -121,9 +171,12 @@
                                     stroke-width="2"
                                     stroke-linecap="round"/>
                             </svg>
-
-                            <span class="notification-badge">3</span>
-                        </button>
+                            {% if unread_notification_count > 0 %}
+                                <span class="notification-badge">
+                                    {{ unread_notification_count }}
+                                </span>
+                            {% endif %}
+                        </a>
                     </div>
 
                     <!-- Vertical Separator Divider -->

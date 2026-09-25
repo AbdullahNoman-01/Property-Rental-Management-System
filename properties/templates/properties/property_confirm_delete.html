@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Delete Property | RentNest{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'properties/css/property_confirm_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="delete-page">
+
+
+<div class="delete-card">
+
+    <!-- Warning Icon -->
+    <div class="delete-icon">
+        <i class="fa-solid fa-trash-can"></i>
+    </div>
+
+    <!-- Content -->
+    <div class="delete-content">
+
+        <span class="delete-label">PROPERTY MANAGEMENT</span>
+
+        <h1>Delete Property?</h1>
+
+        <p class="delete-message">
+            Are you sure you want to delete
+            <strong>{{ property.title }}</strong>?
+        </p>
+
+        <p class="delete-warning">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            This action cannot be undone. All information related
+            to this property will be permanently removed.
+        </p>
+
+    </div>
+
+    <!-- Actions -->
+    <form method="POST" class="delete-actions">
+
+        {% csrf_token %}
+
+        <a href="{% url 'property_detail' property.pk %}"
+           class="btn-cancel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Cancel
+        </a>
+
+        <button type="submit" class="btn-delete">
+            <i class="fa-solid fa-trash-can"></i>
+            Yes, Delete
+        </button>
+
+    </form>
+
+</div>
+
+
+</div>
+
+{% endblock %}

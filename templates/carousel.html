@@ -1,0 +1,226 @@
+{% load static %}
+<!-- ============================================== -->
+<!-- HERO SECTION WITH AUTO-SLIDING CAROUSEL        -->
+<!-- ============================================== -->
+ {% block extra_css %}
+ <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+ {% endblock extra_css %}
+<section class="hero-section">
+    <div class="hero-container">
+
+        <!-- ================= Left Column: Title & Search Card ================= -->
+        <div class="hero-content">
+            <h1 class="hero-title">
+               Discover Your<br>
+               Dream Home
+            </h1>
+            <p class="hero-subtitle">
+               Your trusted platform to discover, rent, and manage properties effortlessly.
+            </p>
+
+            <!-- Search Filter Card -->
+            <div class="hero-search-card">
+                <!-- Tabs: FOR SALE / FOR RENT -->
+                <div class="search-type-tabs">
+                    <button type="button" class="tab-btn" data-type="rent">FOR RENT</button>
+                </div>
+
+                <form action="{% url 'property_list' %}" method="GET" class="hero-filter-form">
+                    <!-- Search by Location / Property Name -->
+                    <div class="form-group search-input-group">
+                        <input 
+                            type="text" 
+                            name="search_query" 
+                            class="form-control-custom" 
+                            placeholder="Search by Location, Properties Name"
+                            autocomplete="off"
+                        >
+                        <span class="search-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <!-- Property Type Dropdown -->
+                    <div class="form-group select-group">
+                        <select name="property_type" class="form-select-custom">
+                            <option value="" selected>Property type</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House / Villa</option>
+                            <option value="land">Office / Commercial</option>
+                        </select>
+                        <span class="select-chevron" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <!-- Price Range Slider Section -->
+                    <div class="form-group price-range-group">
+                        <label class="price-range-label">Price range</label>
+                        
+                        <!-- Range Track Visual -->
+                        <div class="range-slider-wrapper">
+                            <input 
+                                type="range" 
+                                class="range-slider-track" 
+                                min="15000" 
+                                max="200000" 
+                                step="1000" 
+                                value="200000"
+                                id="heroPriceSlider"
+                            >
+                        </div>
+
+                        <!-- Minimum and Maximum Inputs -->
+                        <div class="price-inputs-row">
+                            <!-- Minimum -->
+                            <div class="price-field-wrap">
+                                <span class="price-sublabel">Minimum</span>
+                                <div class="price-box">
+                                    <span class="currency-symbol">&#2547;</span>
+                                    <input 
+                                        type="number" 
+                                        name="min_price" 
+                                        class="price-input" 
+                                        value="15000"
+                                    >
+                                </div>
+                            </div>
+
+                            <span class="price-separator">-</span>
+
+                            <!-- Maximum -->
+                            <div class="price-field-wrap">
+                                <span class="price-sublabel">Maximum</span>
+                                <div class="price-box">
+                                    <span class="currency-symbol">&#2547;</span>
+                                    <input 
+                                        type="number" 
+                                        name="max_price" 
+                                        class="price-input" 
+                                        value="200000"
+                                        id="heroMaxPriceInput"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-hero-search">SEARCH</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ================= Right Column: 4-Image Auto Carousel ================= -->
+        <div class="hero-carousel-wrapper">
+            <div 
+                id="heroPropertyCarousel" 
+                class="carousel slide carousel-fade" 
+                data-bs-ride="carousel" 
+                data-bs-interval="3500" 
+                data-bs-pause="false"
+            >
+                <!-- 4 Indicators / Dots -->
+                <div class="carousel-indicators custom-carousel-indicators">
+                    <button type="button" data-bs-target="#heroPropertyCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroPropertyCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroPropertyCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#heroPropertyCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+
+                <!-- 4 Slides Container (Auto Transitions) -->
+                <div class="carousel-inner custom-carousel-inner">
+                    <!-- Image 1 -->
+                    <div class="carousel-item active" data-bs-interval="3500">
+                        <img 
+                            src="{% static 'images/hero-1.jpg' %}" 
+                            class="d-block w-100 hero-slide-img" 
+                            alt="Property 1"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80';"
+                        >
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="carousel-item" data-bs-interval="3500">
+                        <img 
+                            src="{% static 'images/hero-2.jpg' %}" 
+                            class="d-block w-100 hero-slide-img" 
+                            alt="Property 2"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80';"
+                        >
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="carousel-item" data-bs-interval="3500">
+                        <img 
+                            src="{% static 'images/hero-3.jpg' %}" 
+                            class="d-block w-100 hero-slide-img" 
+                            alt="Property 3"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80';"
+                        >
+                    </div>
+
+                    <!-- Image 4 -->
+                    <div class="carousel-item" data-bs-interval="3500">
+                        <img 
+                            src="{% static 'images/hero-4.jpg' %}" 
+                            class="d-block w-100 hero-slide-img" 
+                            alt="Property 4"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80';"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer Text Below Slider -->
+            <p class="carousel-disclaimer">
+               <strong>RentNest</strong> is a modern property rental platform designed to help tenants discover properties and <strong>property owners</strong> manage their rentals
+               with ease.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Automatic Carousel Initialization & Tab Toggle Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Ensure Bootstrap Carousel auto-slides smoothly
+        const carouselElement = document.getElementById('heroPropertyCarousel');
+        if (carouselElement && typeof bootstrap !== 'undefined') {
+            const myCarousel = new bootstrap.Carousel(carouselElement, {
+                interval: 3500,
+                ride: 'carousel',
+                pause: false,
+                wrap: true
+            });
+            myCarousel.cycle();
+        }
+
+        // Tab switcher (FOR SALE / FOR RENT)
+        const tabBtns = document.querySelectorAll('.hero-search-card .tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Sync price slider with maximum input
+        const priceSlider = document.getElementById('heroPriceSlider');
+        const maxPriceInput = document.getElementById('heroMaxPriceInput');
+        if (priceSlider && maxPriceInput) {
+            priceSlider.addEventListener('input', function() {
+                maxPriceInput.value = this.value;
+            });
+            maxPriceInput.addEventListener('input', function() {
+                priceSlider.value = this.value;
+            });
+        }
+    });
+</script>

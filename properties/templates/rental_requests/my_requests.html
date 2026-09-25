@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Rental Requests | RentNest{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'rental_requests/css/my_requests.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="rental-requests-page">
+
+    <!-- ================= HEADER ================= -->
+    <div class="requests-header">
+
+        <div class="header-content">
+
+            <div class="header-icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+
+            <div>
+                <span class="header-label">RENTNEST</span>
+
+                <h1>My Rental Requests</h1>
+
+                <p>
+                    Track and manage all the rental requests you've sent.
+                </p>
+            </div>
+
+        </div>
+
+        <a href="{% url 'property_list' %}" class="browse-btn">
+            <i class="fa-solid fa-house"></i>
+            Browse Properties
+        </a>
+
+    </div>
+
+
+    <!-- ================= REQUEST CONTENT ================= -->
+
+    {% if rental_requests %}
+
+        <div class="requests-summary">
+
+            <div class="summary-item">
+                <div class="summary-icon">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+
+                <div>
+                    <span>Total Requests</span>
+                    <strong>{{ rental_requests|length }}</strong>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="requests-list">
+
+            {% for rental_request in rental_requests %}
+
+                <div class="request-card">
+
+                    <!-- Property Image/Icon -->
+                    <div class="property-preview">
+
+                        {% if rental_request.property.image %}
+                            <img
+                                src="{{ rental_request.property.image.url }}"
+                                alt="{{ rental_request.property.title }}"
+                            >
+                        {% else %}
+                            <div class="property-placeholder">
+                                <i class="fa-solid fa-house"></i>
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- Request Details -->
+                    <div class="request-content">
+
+                        <div class="request-top">
+
+                            <div>
+
+                                <span class="property-type">
+                                    {{ rental_request.property.get_property_type_display }}
+                                </span>
+
+                                <h2>
+                                    {{ rental_request.property.title }}
+                                </h2>
+
+                                <div class="property-location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    {{ rental_request.property.location }}
+                                </div>
+
+                            </div>
+
+
+                            <!-- Status -->
+                            <div class="request-status">
+
+                                {% if rental_request.status == 'PENDING' %}
+
+                                    <span class="status pending">
+                                        <span class="status-dot"></span>
+                                        Pending
+                                    </span>
+
+                                {% elif rental_request.status == 'ACCEPTED' %}
+
+                                    <span class="status accepted">
+                                        <span class="status-dot"></span>
+                                        Accepted
+                                    </span>
+
+                                {% elif rental_request.status == 'REJECTED' %}
+
+                                    <span class="status rejected">
+                                        <span class="status-dot"></span>
+                                        Rejected
+                                    </span>
+
+                                {% elif rental_request.status == 'CANCELLED' %}
+
+                                    <span class="status cancelled">
+                                        <span class="status-dot"></span>
+                                        Cancelled
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Request Information -->
+
+                        <div class="request-info-grid">
+
+                            <div class="info-item">
+
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+                                </div>
+
+                                <div>
+                                    <span>Monthly Rent</span>
+                                    <strong>
+                                        ৳{{ rental_request.property.monthly_rent }}
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="info-item">
+
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                </div>
+
+                                <div>
+                                    <span>Request Date</span>
+                                    <strong>
+                                        {{ rental_request.request_date|date:"d M Y" }}
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="info-item">
+
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+
+                                <div>
+                                    <span>Time</span>
+                                    <strong>
+                                        {{ rental_request.request_date|date:"h:i A" }}
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Message -->
+
+                        {% if rental_request.message %}
+
+                            <div class="request-message">
+
+                                <div class="message-icon">
+                                    <i class="fa-regular fa-comment"></i>
+                                </div>
+
+                                <div>
+                                    <span>Your Message</span>
+
+                                    <p>
+                                        {{ rental_request.message }}
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- Bottom Actions -->
+
+                        <div class="request-footer">
+
+                            <a
+                                href="{% url 'property_detail' rental_request.property.id %}"
+                                class="view-property-btn"
+                            >
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                View Property
+                            </a>
+
+
+                            {% if rental_request.status == 'PENDING' %}
+
+                                <a
+                                    href="{% url 'cancel_rental_request' rental_request.id %}"
+                                    class="cancel-btn"
+                                >
+                                    <i class="fa-solid fa-xmark"></i>
+                                    Cancel Request
+                                </a>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+    {% else %}
+
+        <!-- ================= EMPTY STATE ================= -->
+
+        <div class="empty-requests">
+
+            <div class="empty-icon">
+                <i class="fa-regular fa-paper-plane"></i>
+            </div>
+
+            <h2>No Rental Requests Yet</h2>
+
+            <p>
+                You haven't sent any rental requests.
+                Explore available properties and find your next home.
+            </p>
+
+            <a href="{% url 'property_list' %}" class="empty-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Explore Properties
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

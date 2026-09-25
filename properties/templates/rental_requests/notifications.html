@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Notifications | RentNest{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'rental_requests/css/notifications.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="notifications-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="notifications-header">
+
+        <div class="header-content">
+
+            <div class="header-icon">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <div>
+                <span class="header-label">RENTNEST</span>
+
+                <h1>Notifications</h1>
+
+                <p>
+                    Stay updated with your latest rental activities.
+                </p>
+
+                <!-- Mark All As Read -->
+
+                {% if unread_notification_count > 0 %}
+
+                    <a href="{% url 'mark_all_notifications_read' %}"
+                       class="mark-all-read">
+
+                        <i class="fa-solid fa-check-double"></i>
+                        Mark all as read
+
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= NOTIFICATIONS ================= -->
+
+    {% if notifications %}
+
+        <div class="notifications-list">
+
+            {% for notification in notifications %}
+
+                <!-- Notification Click -->
+
+                <a href="{% url 'notification_redirect' notification.id %}"
+                   class="notification-link">
+
+                    <div class="notification-card {% if not notification.is_read %}unread{% endif %}">
+
+                        <!-- Notification Icon -->
+
+                        <div class="notification-icon">
+
+                            {% if not notification.is_read %}
+
+                                <i class="fa-solid fa-bell"></i>
+
+                            {% else %}
+
+                                <i class="fa-regular fa-bell"></i>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Notification Content -->
+
+                        <div class="notification-content">
+
+                            <div class="notification-top">
+
+                                <div class="notification-message">
+
+                                    {{ notification.message }}
+
+                                </div>
+
+
+                                {% if not notification.is_read %}
+
+                                    <span class="new-badge">
+
+                                        <span></span>
+                                        New
+
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <div class="notification-time">
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                {{ notification.created_at|date:"d M Y, h:i A" }}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            {% endfor %}
+
+        </div>
+
+
+    {% else %}
+
+        <!-- ================= EMPTY STATE ================= -->
+
+        <div class="empty-notifications">
+
+            <div class="empty-icon">
+
+                <i class="fa-regular fa-bell-slash"></i>
+
+            </div>
+
+            <h2>No Notifications</h2>
+
+            <p>
+                You're all caught up! New notifications will appear here.
+            </p>
+
+            <a href="{% url 'property_list' %}" class="empty-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Browse Properties
+
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

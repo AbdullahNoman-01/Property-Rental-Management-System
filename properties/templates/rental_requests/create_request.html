@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Rental Request | RentNest{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'rental_requests/css/create_request.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="rental-request-page">
+
+
+<div class="rental-request-container">
+
+    <!-- Page Header -->
+    <div class="request-header">
+
+        <div class="request-icon">
+            <i class="fa-solid fa-file-signature"></i>
+        </div>
+
+        <div>
+            <span class="request-label">RENTAL REQUEST</span>
+
+            <h1>Send Rental Request</h1>
+
+            <p>
+                Submit your request to rent this property.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="request-layout">
+
+        <!-- Property Summary -->
+        <div class="property-summary-card">
+
+            <div class="property-summary-header">
+                <div class="summary-icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+
+                <div>
+                    <span>PROPERTY</span>
+                    <h2>{{ property.title }}</h2>
+                </div>
+            </div>
+
+
+            <div class="property-info">
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div>
+                        <span>Location</span>
+                        <strong>{{ property.location }}</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                    </div>
+
+                    <div>
+                        <span>Monthly Rent</span>
+                        <strong>৳{{ property.monthly_rent }}</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+
+                    <div>
+                        <span>Property Type</span>
+                        <strong>
+                            {{ property.get_property_type_display }}
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a href="{% url 'property_detail' property.id %}"
+               class="view-property-link">
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                View Property Details
+
+            </a>
+
+        </div>
+
+
+        <!-- Request Form -->
+        <div class="request-form-card">
+
+            <div class="form-card-header">
+
+                <div>
+                    <span>REQUEST FORM</span>
+
+                    <h2>Tell us about your request</h2>
+
+                    <p>
+                        Fill in the details below to send your rental request.
+                    </p>
+                </div>
+
+            </div>
+
+
+            {% if form.non_field_errors %}
+                <div class="form-error-box">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                    <div>
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            {% endif %}
+
+
+            <form method="POST" class="rental-form">
+
+                {% csrf_token %}
+
+                {% for field in form %}
+
+                    <div class="form-group">
+
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                        </label>
+
+                        {{ field }}
+
+                        {% if field.help_text %}
+                            <small class="help-text">
+                                {{ field.help_text }}
+                            </small>
+                        {% endif %}
+
+                        {% if field.errors %}
+                            <div class="field-error">
+
+                                <i class="fa-solid fa-circle-exclamation"></i>
+
+                                {{ field.errors }}
+
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+
+                <div class="form-actions">
+
+                    <a href="{% url 'property_detail' property.id %}"
+                       class="btn-cancel">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Cancel
+
+                    </a>
+
+
+                    <button type="submit" class="btn-send">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send Request
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% if property %}Update Property{% else %}Add Property{% endif %} | RentNest
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'properties/css/property_form.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="property-form-page">
+
+
+<!-- ================= PAGE HEADER ================= -->
+<div class="form-page-header">
+
+    <div class="header-icon">
+        <i class="fa-solid fa-house-circle-plus"></i>
+    </div>
+
+    <div>
+        <span class="header-label">RENTNEST PROPERTIES</span>
+
+        <h1>
+            {% if property %}
+                Update Property
+            {% else %}
+                Add New Property
+            {% endif %}
+        </h1>
+
+        <p>
+            {% if property %}
+                Update your property information and keep your listing accurate.
+            {% else %}
+                Add your property details and make it available to potential renters.
+            {% endif %}
+        </p>
+    </div>
+
+</div>
+
+
+<!-- ================= FORM CARD ================= -->
+<div class="property-form-card">
+
+    <form method="POST"
+          enctype="multipart/form-data"
+          class="property-form">
+
+        {% csrf_token %}
+
+
+        <!-- FORM ERRORS -->
+        {% if form.non_field_errors %}
+            <div class="form-error-box">
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                <div>
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+
+        <!-- ================= BASIC INFORMATION ================= -->
+        <div class="form-section">
+
+            <div class="form-section-header">
+                <div class="section-icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+
+                <div>
+                    <span>STEP 01</span>
+                    <h2>Basic Information</h2>
+                </div>
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+                    <label for="{{ form.title.id_for_label }}">
+                        Property Title
+                    </label>
+
+                    {{ form.title }}
+
+                    {% if form.title.errors %}
+                        <div class="field-error">
+                            {{ form.title.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="{{ form.property_type.id_for_label }}">
+                        Property Type
+                    </label>
+
+                    {{ form.property_type }}
+
+                    {% if form.property_type.errors %}
+                        <div class="field-error">
+                            {{ form.property_type.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="{{ form.monthly_rent.id_for_label }}">
+                        Monthly Rent
+                    </label>
+
+                    <div class="input-with-icon">
+                        <span>৳</span>
+                        {{ form.monthly_rent }}
+                    </div>
+
+                    {% if form.monthly_rent.errors %}
+                        <div class="field-error">
+                            {{ form.monthly_rent.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <div class="form-group full-width">
+                    <label for="{{ form.location.id_for_label }}">
+                        Location
+                    </label>
+
+                    <div class="input-with-icon location-input">
+                        <i class="fa-solid fa-location-dot"></i>
+                        {{ form.location }}
+                    </div>
+
+                    {% if form.location.errors %}
+                        <div class="field-error">
+                            {{ form.location.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <div class="form-group full-width">
+                    <label for="{{ form.description.id_for_label }}">
+                        Description
+                    </label>
+
+                    {{ form.description }}
+
+                    {% if form.description.errors %}
+                        <div class="field-error">
+                            {{ form.description.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= PROPERTY FEATURES ================= -->
+        <div class="form-section">
+
+            <div class="form-section-header">
+                <div class="section-icon">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+
+                <div>
+                    <span>STEP 02</span>
+                    <h2>Property Features</h2>
+                </div>
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="{{ form.bedrooms.id_for_label }}">
+                        Bedrooms
+                    </label>
+
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-bed"></i>
+                        {{ form.bedrooms }}
+                    </div>
+
+                    {% if form.bedrooms.errors %}
+                        <div class="field-error">
+                            {{ form.bedrooms.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="{{ form.bathrooms.id_for_label }}">
+                        Bathrooms
+                    </label>
+
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-bath"></i>
+                        {{ form.bathrooms }}
+                    </div>
+
+                    {% if form.bathrooms.errors %}
+                        <div class="field-error">
+                            {{ form.bathrooms.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="{{ form.availability_status.id_for_label }}">
+                        Availability Status
+                    </label>
+
+                    {{ form.availability_status }}
+
+                    {% if form.availability_status.errors %}
+                        <div class="field-error">
+                            {{ form.availability_status.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= PROPERTY IMAGE ================= -->
+        <div class="form-section">
+
+            <div class="form-section-header">
+                <div class="section-icon">
+                    <i class="fa-solid fa-image"></i>
+                </div>
+
+                <div>
+                    <span>STEP 03</span>
+                    <h2>Property Image</h2>
+                </div>
+            </div>
+
+
+            <div class="image-upload-box">
+
+                <div class="upload-icon">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+                <div class="upload-content">
+
+                    <h3>
+                        {% if property and property.image %}
+                            Change Property Image
+                        {% else %}
+                            Upload Property Image
+                        {% endif %}
+                    </h3>
+
+                    <p>
+                        Choose a clear image that represents your property.
+                    </p>
+
+                    {{ form.image }}
+
+                    {% if form.image.errors %}
+                        <div class="field-error">
+                            {{ form.image.errors.0 }}
+                        </div>
+                    {% endif %}
+
+                    {% if property and property.image %}
+                        <div class="current-image">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Current image is already uploaded.
+                        </div>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FORM ACTIONS ================= -->
+        <div class="form-actions">
+
+            <a href="{% url 'property_list' %}" class="cancel-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Cancel
+            </a>
+
+            <button type="submit" class="submit-btn">
+
+                <i class="fa-solid
+                    {% if property %}
+                        fa-rotate
+                    {% else %}
+                        fa-plus
+                    {% endif %}">
+                </i>
+
+                {% if property %}
+                    Update Property
+                {% else %}
+                    Create Property
+                {% endif %}
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+</div>
+
+{% endblock %}

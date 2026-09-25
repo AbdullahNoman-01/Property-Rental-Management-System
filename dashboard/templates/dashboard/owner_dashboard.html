@@ -1,0 +1,613 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Owner Dashboard | RentNest{% endblock %}
+
+{% block extra_css %}
+   <link rel="stylesheet" href="{% static 'dashboard/css/owner_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="owner-dashboard">
+
+    <!-- =================================================
+         DASHBOARD HEADER
+    ================================================== -->
+
+    <div class="dashboard-header">
+
+        <div class="dashboard-welcome">
+
+            <div class="dashboard-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div>
+                <span class="dashboard-label">RENTNEST</span>
+
+                <h1>Owner Dashboard</h1>
+
+                <p>
+                    Manage your properties and rental requests in one place.
+                </p>
+            </div>
+
+        </div>
+
+        <a href="{% url 'property_create' %}" class="add-property-btn">
+            <i class="fa-solid fa-plus"></i>
+            Add Property
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================== -->
+
+    <div class="stats-grid">
+
+        <!-- Total Properties -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon properties-icon">
+                <i class="fa-solid fa-building"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <span>Total Properties</span>
+
+                <strong>{{ total_properties }}</strong>
+
+                <small>
+                    Properties you own
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Available -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon available-icon">
+                <i class="fa-solid fa-house-circle-check"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <span>Available Properties</span>
+
+                <strong>{{ available_properties }}</strong>
+
+                <small>
+                    Currently available
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Total Requests -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon request-icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <span>Total Requests</span>
+
+                <strong>{{ total_requests }}</strong>
+
+                <small>
+                    Rental requests received
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Pending -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon pending-icon">
+                <i class="fa-solid fa-hourglass-half"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <span>Pending Requests</span>
+
+                <strong>{{ pending_requests }}</strong>
+
+                <small>
+                    Waiting for your action
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Accepted -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon accepted-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <span>Accepted Requests</span>
+
+                <strong>{{ accepted_requests }}</strong>
+
+                <small>
+                    Successfully accepted
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         MY PROPERTIES
+    ================================================== -->
+
+    <section class="dashboard-section">
+
+        <div class="section-header">
+
+            <div>
+                <span class="section-label">PROPERTY MANAGEMENT</span>
+
+                <h2>My Properties</h2>
+
+                <p>
+                    Manage all properties listed under your account.
+                </p>
+            </div>
+
+            <a href="{% url 'property_create' %}" class="section-action">
+                <i class="fa-solid fa-plus"></i>
+                Add Property
+            </a>
+
+        </div>
+
+
+        <div class="dashboard-table-wrapper">
+
+            <table class="dashboard-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Property</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Monthly Rent</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for property in properties %}
+
+                    <tr>
+
+                        <!-- Property -->
+
+                        <td>
+
+                            <div class="property-cell">
+
+                                <div class="property-cell-icon">
+
+                                    {% if property.image %}
+                                        <img
+                                            src="{{ property.image.url }}"
+                                            alt="{{ property.title }}"
+                                        >
+                                    {% else %}
+                                        <i class="fa-solid fa-house"></i>
+                                    {% endif %}
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        {{ property.title }}
+                                    </strong>
+
+                                    <span>
+                                        ID #{{ property.id }}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- Type -->
+
+                        <td>
+
+                            <span class="type-badge">
+                                {{ property.get_property_type_display }}
+                            </span>
+
+                        </td>
+
+
+                        <!-- Location -->
+
+                        <td>
+
+                            <div class="location-cell">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                {{ property.location }}
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- Rent -->
+
+                        <td>
+
+                            <strong class="rent-value">
+                                ৳{{ property.monthly_rent }}
+                            </strong>
+
+                            <span class="rent-period">
+                                / month
+                            </span>
+
+                        </td>
+
+
+                        <!-- Status -->
+
+                        <td>
+
+                            {% if property.availability_status == 'AVAILABLE' %}
+
+                                <span class="status-badge available">
+                                    <span class="status-dot"></span>
+                                    Available
+                                </span>
+
+                            {% else %}
+
+                                <span class="status-badge rented">
+                                    <span class="status-dot"></span>
+                                    Rented
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Actions -->
+
+                        <td>
+
+                            <div class="action-buttons">
+
+                                <a
+                                    href="{% url 'property_detail' property.id %}"
+                                    class="table-action view-action"
+                                    title="View Property"
+                                >
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+
+                                <a
+                                    href="{% url 'property_update' property.id %}"
+                                    class="table-action edit-action"
+                                    title="Edit Property"
+                                >
+                                    <i class="fa-solid fa-pen"></i>
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="6">
+
+                            <div class="table-empty">
+
+                                <div class="empty-small-icon">
+                                    <i class="fa-solid fa-house"></i>
+                                </div>
+
+                                <strong>No Properties Found</strong>
+
+                                <span>
+                                    Start by adding your first property.
+                                </span>
+
+                                <a href="{% url 'property_create' %}">
+                                    <i class="fa-solid fa-plus"></i>
+                                    Add Property
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         RENTAL REQUESTS
+    ================================================== -->
+
+    <section class="dashboard-section">
+
+        <div class="section-header">
+
+            <div>
+                <span class="section-label">RENTAL MANAGEMENT</span>
+
+                <h2>Rental Requests</h2>
+
+                <p>
+                    Review and manage requests from potential tenants.
+                </p>
+            </div>
+
+            <a
+                href="{% url 'owner_rental_requests' %}"
+                class="section-action secondary-action"
+            >
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="dashboard-table-wrapper">
+
+            <table class="dashboard-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Tenant</th>
+                        <th>Property</th>
+                        <th>Request Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for rental_request in rental_requests %}
+
+                    <tr>
+
+                        <!-- Tenant -->
+
+                        <td>
+
+                            <div class="tenant-cell">
+
+                                <div class="tenant-avatar">
+                                    {{ rental_request.tenant.username|first|upper }}
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        {{ rental_request.tenant.username }}
+                                    </strong>
+
+                                    <span>
+                                        Rental Applicant
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- Property -->
+
+                        <td>
+
+                            <div class="request-property">
+
+                                <i class="fa-solid fa-house"></i>
+
+                                <span>
+                                    {{ rental_request.property.title }}
+                                </span>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- Date -->
+
+                        <td>
+
+                            <div class="date-cell">
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                <span>
+                                    {{ rental_request.request_date|date:"d M Y" }}
+                                </span>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- Status -->
+
+                        <td>
+
+                            {% if rental_request.status == 'PENDING' %}
+
+                                <span class="status-badge pending">
+                                    <span class="status-dot"></span>
+                                    Pending
+                                </span>
+
+                            {% elif rental_request.status == 'ACCEPTED' %}
+
+                                <span class="status-badge accepted">
+                                    <span class="status-dot"></span>
+                                    Accepted
+                                </span>
+
+                            {% elif rental_request.status == 'REJECTED' %}
+
+                                <span class="status-badge rejected">
+                                    <span class="status-dot"></span>
+                                    Rejected
+                                </span>
+
+                            {% else %}
+
+                                <span class="status-badge cancelled">
+                                    <span class="status-dot"></span>
+                                    Cancelled
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Actions -->
+
+                        <td>
+
+                            {% if rental_request.status == 'PENDING' %}
+
+                                <div class="request-actions">
+
+                                    <a
+                                        href="{% url 'accept_rental_request' rental_request.id %}"
+                                        class="accept-action"
+                                        title="Accept Request"
+                                    >
+                                        <i class="fa-solid fa-check"></i>
+                                    </a>
+
+                                    <a
+                                        href="{% url 'reject_rental_request' rental_request.id %}"
+                                        class="reject-action"
+                                        title="Reject Request"
+                                    >
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </a>
+
+                                </div>
+
+                            {% else %}
+
+                                <span class="no-action">
+                                    Completed
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="5">
+
+                            <div class="table-empty">
+
+                                <div class="empty-small-icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+
+                                <strong>No Rental Requests</strong>
+
+                                <span>
+                                    Rental requests will appear here.
+                                </span>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
