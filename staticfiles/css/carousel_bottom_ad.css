@@ -1,0 +1,410 @@
+/* ==========================================================================
+   Property Rental & Management System - Advertisement Banner Stylesheet
+   Featured Project: Lost & Found Management System
+   ========================================================================== */
+
+.ad-banner-section {
+    padding: 16px 0 48px;
+    background-color: transparent;
+    width: 100%;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+.ad-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Advertisement Banner Card
+   ========================================================================== */
+
+.ad-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    background-color: #ffffff;
+    border: 1.5px solid #edf2f7;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    text-decoration: none !important;
+    color: inherit;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ad-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(20, 108, 67, 0.09);
+    border-color: rgba(20, 108, 67, 0.35);
+}
+
+/* ==========================================================================
+   1. Left Visual Graphic Illustration Box
+   ========================================================================== */
+
+.ad-visual-box {
+    width: 320px;
+    min-height: 140px;
+    height: 100%;
+    align-self: stretch;
+    background: linear-gradient(135deg, #091e36 0%, #113359 60%, #16406e 100%);
+    position: relative;
+    border-radius: 18px 40px 40px 18px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* Subtle Glowing Circles */
+.visual-decor {
+    position: absolute;
+    pointer-events: none;
+}
+
+.visual-circle-1 {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.2) 0%, transparent 70%);
+    top: -30px;
+    left: -30px;
+}
+
+.visual-circle-2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, transparent 70%);
+    bottom: -50px;
+    right: -30px;
+}
+
+/* Floating UI Badges */
+.ad-badge-item {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    animation: floatBadge 4s ease-in-out infinite alternate;
+}
+
+.badge-lost {
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 30px;
+    padding: 5px 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.red-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.8);
+}
+
+.badge-found {
+    bottom: 22px;
+    left: 22px;
+    background: rgba(20, 108, 67, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(74, 222, 128, 0.45);
+    border-radius: 30px;
+    padding: 5px 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #4ade80;
+    animation-delay: 2s;
+}
+
+.green-check {
+    font-weight: 900;
+    font-size: 11px;
+}
+
+.badge-ai {
+    top: 20px;
+    right: 24px;
+    background: rgba(59, 130, 246, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(147, 197, 253, 0.35);
+    border-radius: 30px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #93c5fd;
+    animation-delay: 1s;
+}
+
+/* Central Graphic Emblem */
+.ad-central-emblem {
+    position: absolute;
+    right: 18px;
+    bottom: 14px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 3px solid #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: transform 0.3s ease;
+}
+
+.ad-card:hover .ad-central-emblem {
+    transform: scale(1.08) rotate(5deg);
+}
+
+@keyframes floatBadge {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+}
+
+/* ==========================================================================
+   2. Middle Content Box (Headline, Accent Bar, Subtext)
+   ========================================================================= */
+
+.ad-content-box {
+    flex: 1;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ad-kicker {
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #146c43;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+.ad-headline {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 6px 0;
+    line-height: 1.35;
+}
+
+.ad-headline-sub {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-top: 3px;
+}
+
+.ad-green-bar {
+    width: 64px;
+    height: 3.5px;
+    background-color: #146c43;
+    border-radius: 2px;
+    margin: 8px 0 10px 0;
+}
+
+.ad-features-snippet {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   3. Right Brand Box & Call To Action
+   ========================================================================== */
+
+.ad-brand-box {
+    padding: 20px 32px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.ad-brand-identity {
+    display: flex;
+    align-items: center;
+}
+
+.ad-brand-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
+
+.brand-amp {
+    color: #146c43;
+}
+
+.brand-slogan {
+    font-size: 9.5px;
+    font-weight: 800;
+    color: #6b7280;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* Call To Action Button */
+.ad-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    background-color: #146c43;
+    color: #ffffff !important;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.ad-cta-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.ad-card:hover .ad-cta-btn {
+    background-color: #0f5434;
+}
+
+.ad-card:hover .ad-cta-btn svg {
+    transform: translate(2px, -2px);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+    .ad-card {
+        gap: 20px;
+    }
+    
+    .ad-visual-box {
+        width: 270px;
+    }
+    
+    .ad-headline {
+        font-size: 18px;
+    }
+    
+    .ad-headline-sub {
+        font-size: 15px;
+    }
+
+    .ad-brand-box {
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .ad-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .ad-visual-box {
+        width: 100%;
+        height: 130px;
+        border-radius: 18px 18px 0 0;
+    }
+
+    .ad-content-box {
+        padding: 24px 24px 16px;
+    }
+
+    .ad-brand-box {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .ad-banner-section {
+        padding: 12px 0 36px;
+    }
+
+    .ad-container {
+        padding: 0 16px;
+    }
+
+    .ad-headline {
+        font-size: 16.5px;
+    }
+
+    .ad-headline-sub {
+        font-size: 14px;
+    }
+
+    .ad-features-snippet {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .ad-brand-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .ad-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

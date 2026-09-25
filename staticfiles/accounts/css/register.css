@@ -1,0 +1,585 @@
+/* ========================================
+   REGISTER PAGE
+======================================== */
+
+.register-wrapper {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background: #f5f8f6;
+}
+
+/* ========================================
+   REGISTER CARD
+======================================== */
+
+.register-card {
+    width: 100%;
+    max-width: 1050px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.10);
+}
+
+/* ========================================
+   LEFT SECTION
+======================================== */
+
+.register-info {
+    height: 100%;
+    min-height: 650px;
+
+    padding: 55px 45px;
+
+    background: linear-gradient(
+        145deg,
+        #146c43,
+        #0d5434
+    );
+
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+.brand-icon i {
+    font-size: 25px;
+}
+
+.register-info h1 {
+    margin: 0 0 15px;
+
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.register-info > p {
+    max-width: 390px;
+
+    margin: 0 0 35px;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   FEATURES
+======================================== */
+
+.feature {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 18px;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 14px;
+}
+
+.feature i {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    font-size: 13px;
+}
+
+.feature:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   RIGHT SECTION
+======================================== */
+
+.register-form {
+    padding: 50px 55px;
+}
+
+/* ========================================
+   FORM TITLE
+======================================== */
+
+.form-title {
+    margin-bottom: 28px;
+}
+
+.form-title h2 {
+    margin: 0 0 8px;
+
+    color: #222222;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.form-title p {
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+/* ========================================
+   LABEL
+======================================== */
+
+.register-form .form-label {
+    margin-bottom: 7px;
+
+    color: #333333;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ========================================
+   INPUT GROUP
+======================================== */
+
+.register-form .input-group {
+    height: 48px;
+}
+
+.register-form .input-group-text {
+    width: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f6f8f7;
+
+    border: 1px solid #dfe5e1;
+    border-right: none;
+
+    color: #146c43;
+}
+
+.register-form .input-group-text i {
+    font-size: 14px;
+}
+
+.register-form .input-group .form-control,
+.register-form .input-group select {
+    height: 48px;
+
+    border: 1px solid #dfe5e1;
+    border-left: none;
+
+    box-shadow: none;
+
+    font-size: 14px;
+}
+
+.register-form .input-group .form-control:focus,
+.register-form .input-group select:focus {
+    border-color: #146c43;
+
+    box-shadow: 0 0 0 3px rgba(20, 108, 67, 0.10);
+}
+
+.register-form .input-group:focus-within .input-group-text {
+    border-color: #146c43;
+}
+
+/* ========================================
+   ROLE SELECT
+======================================== */
+
+.register-form select {
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+/* ========================================
+   HELP TEXT
+======================================== */
+
+.help-text {
+    margin-top: 6px;
+
+    color: #888888;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   FORM ERRORS
+======================================== */
+
+.register-form ul.errorlist {
+    margin: 6px 0 0;
+    padding: 0;
+
+    list-style: none;
+
+    color: #dc3545;
+
+    font-size: 12px;
+}
+
+.register-form .alert {
+    margin-bottom: 20px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+}
+
+/* ========================================
+   REGISTER BUTTON
+======================================== */
+
+.register-btn {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #146c43;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.register-btn:hover {
+    background: #0d5434;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 8px 18px rgba(20, 108, 67, 0.20);
+}
+
+.register-btn:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   LOGIN LINK
+======================================== */
+
+.login-link {
+    margin-top: 22px;
+
+    text-align: center;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #146c43;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.login-link a:hover {
+    color: #0d5434;
+    text-decoration: underline;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 991px) {
+
+    .register-wrapper {
+        padding: 35px 20px;
+    }
+
+    .register-info {
+        min-height: auto;
+        padding: 40px;
+    }
+
+    .register-info h1 {
+        font-size: 32px;
+    }
+
+    .register-form {
+        padding: 45px 40px;
+    }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 576px) {
+
+    .register-wrapper {
+        min-height: calc(100vh - 70px);
+
+        padding: 25px 15px;
+    }
+
+    .register-card {
+        border-radius: 15px;
+    }
+
+    .register-info {
+        padding: 32px 25px;
+    }
+
+    .brand-icon {
+        width: 50px;
+        height: 50px;
+
+        margin-bottom: 18px;
+    }
+
+    .brand-icon i {
+        font-size: 21px;
+    }
+
+    .register-info h1 {
+        font-size: 27px;
+    }
+
+    .register-info > p {
+        font-size: 13px;
+        line-height: 1.6;
+
+        margin-bottom: 22px;
+    }
+
+    .feature {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .feature i {
+        width: 32px;
+        height: 32px;
+    }
+
+    .register-form {
+        padding: 35px 25px;
+    }
+
+    .form-title {
+        margin-bottom: 24px;
+    }
+
+    .form-title h2 {
+        font-size: 26px;
+    }
+
+    .form-title p {
+        font-size: 13px;
+    }
+
+    .login-link {
+        font-size: 13px;
+    }
+}
+
+/* ===============================
+   CUSTOM DJANGO MESSAGE ALERT
+================================= */
+
+.custom-alert {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    max-width: 650px;
+    margin: 20px auto;
+
+    padding: 14px 50px 14px 18px;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    animation: slideDown 0.4s ease;
+}
+
+/* Message text */
+.custom-alert span {
+    line-height: 1.5;
+}
+
+/* Icons */
+.custom-alert i {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Close button */
+.custom-alert .btn-close {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+
+    transform: translateY(-50%);
+
+    padding: 8px;
+
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.custom-alert .btn-close:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+/* ===============================
+   SUCCESS
+================================= */
+
+.alert-success {
+    color: #146c43;
+    background: #e9f8f0;
+    border-left: 4px solid #198754;
+}
+
+.alert-success i {
+    color: #198754;
+}
+
+
+/* ===============================
+   ERROR
+================================= */
+
+.alert-danger,
+.alert-error {
+    color: #842029;
+    background: #fcebec;
+    border-left: 4px solid #dc3545;
+}
+
+.alert-danger i,
+.alert-error i {
+    color: #dc3545;
+}
+
+
+/* ===============================
+   WARNING
+================================= */
+
+.alert-warning {
+    color: #664d03;
+    background: #fff8df;
+    border-left: 4px solid #ffc107;
+}
+
+.alert-warning i {
+    color: #d39e00;
+}
+
+
+/* ===============================
+   INFO
+================================= */
+
+.alert-info {
+    color: #055160;
+    background: #e8f7fa;
+    border-left: 4px solid #0dcaf0;
+}
+
+.alert-info i {
+    color: #0dcaf0;
+}
+
+
+/* ===============================
+   ANIMATION
+================================= */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 576px) {
+
+    .custom-alert {
+        margin: 15px 10px;
+        padding: 13px 45px 13px 14px;
+
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .custom-alert i {
+        font-size: 16px;
+    }
+
+    .custom-alert .btn-close {
+        right: 10px;
+    }
+}

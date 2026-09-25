@@ -37,4 +37,321 @@
       {% endif %}
       {% include "carousel.html" %}
       {% include "carousel_bottom_ad.html" %}
+
+
+
+
+<div class="property-page">
+     
+   <!-- ================= PAGE HERO ================= -->
+   <div class="property-hero">
+
+      <div class="property-hero-content">
+
+         <span class="property-hero-label">
+               <i class="fa-solid fa-house"></i>
+               Find Your Perfect Place
+         </span>
+
+         <h1>
+               Discover a Place
+               <span>You’ll Love to Call Home</span>
+         </h1>
+
+         <p>
+               Explore comfortable homes, apartments, rooms and commercial
+               spaces that match your lifestyle and budget.
+         </p>
+
+      </div>
+
+      <div class="property-hero-icon">
+         <i class="fa-solid fa-house-chimney-window"></i>
+      </div>
+
+   </div>
+
+   <!-- ================= PROPERTY COUNT ================= -->
+   <div class="property-toolbar">
+
+      <div class="property-count">
+         <i class="fa-solid fa-house"></i>
+
+         <span>
+               <strong>{{ properties|length }}</strong>
+               Properties Available
+         </span>
+      </div>
+
+      <div class="sort-label">
+         <i class="fa-solid fa-sliders"></i>
+         Explore Properties
+      </div>
+
+   </div>
+
+   <!-- ================= SEARCH & FILTER ================= -->
+   <div class="property-filter-card">
+
+      <form
+         action="{% url 'property_list' %}"
+         method="GET"
+         class="property-filter-form"
+         id="propertyFilterForm"
+      >
+
+         <!-- Search -->
+         <div class="filter-search">
+               <i class="fa-solid fa-magnifying-glass"></i>
+
+               <input
+                  type="text"
+                  name="search_query"
+                  value="{{ search_query }}"
+                  placeholder="Search by property name or location..."
+               >
+         </div>
+
+
+         <!-- Property Type -->
+         <div class="filter-group">
+
+               <label>
+                  <i class="fa-solid fa-building"></i>
+                  Property Type
+               </label>
+
+               <select name="property_type">
+
+                  <option value="">
+                     All Types
+                  </option>
+
+                  <option
+                     value="APARTMENT"
+                     {% if selected_property_type == 'APARTMENT' %}
+                           selected
+                     {% endif %}
+                  >
+                     Apartment
+                  </option>
+
+                  <option
+                     value="HOUSE"
+                     {% if selected_property_type == 'HOUSE' %}
+                           selected
+                     {% endif %}
+                  >
+                     House / Villa
+                  </option>
+
+                  <option
+                     value="ROOM"
+                     {% if selected_property_type == 'ROOM' %}
+                           selected
+                     {% endif %}
+                  >
+                     Room
+                  </option>
+
+                  <option
+                     value="OFFICE"
+                     {% if selected_property_type == 'OFFICE' %}
+                           selected
+                     {% endif %}
+                  >
+                     Office / Commercial
+                  </option>
+
+               </select>
+
+         </div>
+
+
+         <!-- Minimum Price -->
+         <div class="filter-group">
+
+               <label>
+                  <i class="fa-solid fa-money-bill"></i>
+                  Min Rent
+               </label>
+
+               <input
+                  type="number"
+                  name="min_price"
+                  value="{{ min_price }}"
+                  placeholder="Min ৳"
+                  min="0"
+               >
+
+         </div>
+
+
+         <!-- Maximum Price -->
+         <div class="filter-group">
+
+               <label>
+                  <i class="fa-solid fa-money-bill-wave"></i>
+                  Max Rent
+               </label>
+
+               <input
+                  type="number"
+                  name="max_price"
+                  value="{{ max_price }}"
+                  placeholder="Max ৳"
+                  min="0"
+               >
+
+         </div>
+
+
+         <!-- Search Button -->
+         <button
+               type="submit"
+               class="property-filter-btn"
+         >
+               <i class="fa-solid fa-magnifying-glass"></i>
+               Search
+         </button>
+
+
+         <!-- Clear -->
+         <a
+               href="{% url 'property_list' %}"
+               class="property-clear-btn"
+         >
+               Clear
+         </a>
+
+      </form>
+
+   </div>
+
+   <!-- ================= PROPERTY GRID ================= -->
+   <div class="property-grid">
+
+      {% for property in properties %}
+
+      <article class="property-card">
+
+         <!-- Card Top -->
+         <div class="property-card-top">
+
+               <div class="property-icon">
+                  <i class="fa-solid fa-house-chimney"></i>
+               </div>
+
+               <span class="availability-badge
+                  {% if property.availability_status == 'available' %}
+                     available
+                  {% else %}
+                     unavailable
+                  {% endif %}">
+
+                  <span class="status-dot"></span>
+
+                  {{ property.get_availability_status_display }}
+
+               </span>
+
+         </div>
+
+
+         <!-- Property Information -->
+         <div class="property-card-body">
+
+               <span class="property-type">
+                  {{ property.get_property_type_display }}
+               </span>
+
+               <h2>
+                  <a href="{% url 'property_detail' property.pk %}">
+                     {{ property.title }}
+                  </a>
+               </h2>
+
+               <div class="property-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>{{ property.location }}</span>
+               </div>
+
+
+               <!-- Rent -->
+               <div class="property-rent">
+
+                  <div>
+                     <span class="rent-label">Monthly Rent</span>
+
+                     <strong>
+                           ৳{{ property.monthly_rent }}
+                     </strong>
+                  </div>
+
+                  <span class="rent-period">/ month</span>
+
+               </div>
+
+
+               <!-- Owner -->
+               <div class="property-owner">
+
+                  <div class="owner-avatar">
+                     {{ property.owner.username|first|upper }}
+                  </div>
+
+                  <div class="owner-info">
+                     <span>Listed by</span>
+                     <strong>{{ property.owner.username }}</strong>
+                  </div>
+
+               </div>
+
+         </div>
+
+
+         <!-- Card Footer -->
+         <div class="property-card-footer">
+
+               <a href="{% url 'property_detail' property.pk %}"
+                  class="view-property-btn">
+
+                  View Property
+
+                  <i class="fa-solid fa-arrow-right"></i>
+
+               </a>
+
+         </div>
+
+      </article>
+
+      {% empty %}
+
+      <!-- Empty State -->
+      <div class="empty-property">
+
+         <div class="empty-icon">
+               <i class="fa-solid fa-house-circle-xmark"></i>
+         </div>
+
+         <h2>No Properties Found</h2>
+
+         <p>
+               There are currently no properties available.
+               Be the first to add one!
+         </p>
+
+         <a href="{% url 'property_create' %}" class="add-property-btn">
+               <i class="fa-solid fa-plus"></i>
+               Add Property
+         </a>
+
+      </div>
+
+      {% endfor %}
+
+   </div>
+
+</div>
 {% endblock content %}

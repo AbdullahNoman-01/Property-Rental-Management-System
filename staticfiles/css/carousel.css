@@ -1,0 +1,379 @@
+/* ==========================================================================
+   Property Rental & Management System - Hero & Carousel Stylesheet
+   Theme: bproperty inspired Hero with 4-Image Auto Slider
+   ========================================================================== */
+
+.hero-section {
+    padding: 48px 0 60px;
+    background-color: #fbfdfc;
+    width: 100%;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+.hero-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1.15fr 1.35fr;
+    gap: 48px;
+    align-items: start;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Left Column: Hero Content & Search Card
+   ========================================================================== */
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-title {
+    font-size: 52px;
+    font-weight: 800;
+    color: #1f2937;
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4b5563;
+    line-height: 1.5;
+    margin: 0 0 28px 0;
+}
+
+/* Search Card */
+.hero-search-card {
+    background-color: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 480px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Type Switcher Tabs (FOR SALE / FOR RENT) */
+.search-type-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 6px 18px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 1.5px solid #e5e7eb;
+    background-color: #ffffff;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.tab-btn.active {
+    border-color: #146c43;
+    color: #146c43;
+    background-color: #f0f7f3;
+}
+
+.tab-btn:hover:not(.active) {
+    border-color: #d1d5db;
+    color: #374151;
+}
+
+/* Form Controls */
+.hero-filter-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-input-group,
+.select-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.form-control-custom,
+.form-select-custom {
+    width: 100%;
+    padding: 12px 42px 12px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1f2937;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-control-custom::placeholder {
+    color: #9ca3af;
+}
+
+.form-select-custom {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.form-control-custom:focus,
+.form-select-custom:focus {
+    border-color: #146c43;
+    box-shadow: 0 0 0 3px rgba(20, 108, 67, 0.1);
+}
+
+.search-icon,
+.select-chevron {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Price Range Slider */
+.price-range-group {
+    margin-bottom: 22px;
+}
+
+.price-range-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.range-slider-wrapper {
+    margin-bottom: 14px;
+}
+
+.range-slider-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 6px;
+    background-color: #e5e7eb;
+    accent-color: #146c43;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Minimum and Maximum Inputs Row */
+.price-inputs-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.price-field-wrap {
+    flex: 1;
+}
+
+.price-sublabel {
+    font-size: 11.5px;
+    color: #6b7280;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.price-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 7px 10px;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease;
+}
+
+.price-box:focus-within {
+    border-color: #146c43;
+}
+
+.currency-symbol {
+    color: #6b7280;
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.price-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1f2937;
+    background: transparent;
+}
+
+.price-separator {
+    color: #9ca3af;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* Search Submit Button */
+.btn-hero-search {
+    width: 100%;
+    height: 46px;
+    background-color: #146c43;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-hero-search:hover {
+    background-color: #0f5434;
+}
+
+.btn-hero-search:active {
+    transform: scale(0.99);
+}
+
+/* ==========================================================================
+   Right Column: 4-Image Auto Slider / Carousel
+   ========================================================================== */
+
+.hero-carousel-wrapper {
+    width: 100%;
+}
+
+#heroPropertyCarousel {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    background-color: #e5e7eb;
+}
+
+.custom-carousel-inner {
+    border-radius: 24px;
+    overflow: hidden;
+    height: 490px;
+}
+
+.hero-slide-img {
+    width: 100%;
+    height: 490px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 24px;
+}
+
+/* Indicators (Pill & Dots) */
+.custom-carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    left: auto;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+    justify-content: flex-end;
+}
+
+.custom-carousel-indicators button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    opacity: 1 !important;
+    transition: all 0.3s ease;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.custom-carousel-indicators button.active {
+    width: 28px;
+    height: 8px;
+    border-radius: 12px;
+    background-color: #146c43;
+}
+
+/* Disclaimer text */
+.carousel-disclaimer {
+    font-size: 11.5px;
+    color: #6b7280;
+    line-height: 1.45;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.carousel-disclaimer strong {
+    color: #374151;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-search-card {
+        max-width: 100%;
+    }
+
+    .custom-carousel-inner,
+    .hero-slide-img {
+        height: 420px;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-section {
+        padding: 32px 0 44px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .custom-carousel-inner,
+    .hero-slide-img {
+        height: 280px;
+        border-radius: 18px;
+    }
+
+    #heroPropertyCarousel {
+        border-radius: 18px;
+    }
+
+    .custom-carousel-indicators {
+        bottom: 12px;
+        right: 18px;
+    }
+}
