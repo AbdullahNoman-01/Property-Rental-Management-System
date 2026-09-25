@@ -1,0 +1,385 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | RentNest - Property Rental & Management Portal{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'about_us/css/about_us.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<main class="about-page">
+
+    <!-- ============================================== -->
+    <!-- 1. HERO BANNER: Skyline with Green Tint        -->
+    <!-- ============================================== -->
+    <section class="about-hero">
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-container">
+            <h1 class="about-hero-title">About RentNest</h1>
+            <p class="about-hero-subtitle">
+                RentNest Group is the Trusted Property Rental &amp; Management Portal in Bangladesh
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- MAIN CONTENT CONTAINER                         -->
+    <!-- ============================================== -->
+    <div class="about-body">
+
+        <!-- ============================================== -->
+        <!-- 2. WHY RENTNEST: Two Columns (Text + City Photo)-->
+        <!-- ============================================== -->
+        <section class="about-section why-section">
+            <div class="about-grid-2col">
+                <!-- Left Text Column -->
+                <div class="why-text-col">
+                    <h2 class="section-title">Why RentNest?</h2>
+                    <p class="section-paragraph">
+                        RentNest is a leading real estate technology company in Bangladesh, which offers one of the most innovative online property rental and management portals in the country. Our mission is to help our beloved customers and property owners find the very best rental listings and simplify property management in Bangladesh.
+                    </p>
+                    <p class="section-paragraph">
+                        With an ever-growing network of verified apartments, modern townhouses, commercial spaces, and residential flats, RentNest delivers an unmatched digital rental experience tailored specifically for urban living.
+                    </p>
+                </div>
+
+                <!-- Right Dual-Building Photo Composition -->
+                <div class="why-image-col">
+                    <div class="dual-photo-frame">
+                        <div class="photo-card photo-left">
+                            <img 
+                                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80" 
+                                alt="Modern Architectural Tower"
+                                class="why-img"
+                            >
+                        </div>
+                        <div class="photo-card photo-right">
+                            <img 
+                                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=700&q=80" 
+                                alt="Urban Residential Complex"
+                                class="why-img"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 3. MID HIGHLIGHT TEXT BLOCK                    -->
+        <!-- ============================================== -->
+        <section class="about-highlight-section">
+            <div class="highlight-content">
+                <p>
+                    Our high-quality platform allows users to search, find and compare real estate listings in Bangladesh's dynamic real estate sector. Our property listings are hand-picked and vetted for providing accurate details and transparency to our valued users. In addition to this, the RentNest team offers regular insights about the BD property sector with timely and insightful 
+                    <a href="{% url 'property_list' %}" class="highlight-link">property trends</a>, 
+                    <a href="{% url 'advertise:advertise' %}" class="highlight-link">rental package campaigns</a>, and 
+                    <a href="{% url 'property_list' %}" class="highlight-link">verified property search tools</a>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 4. ABOUT YOUR SEARCH: Smartphone App Mockup + Text -->
+        <!-- ============================================== -->
+        <section class="about-section search-section">
+            <div class="about-grid-2col search-grid">
+                <!-- Left: Phone / App Display Mockup -->
+                <div class="search-mockup-col">
+                    <div class="app-display-wrapper">
+                        <!-- Top Brand Tag -->
+                        <div class="mockup-brand-badge">
+                            <span class="mockup-logo-icon">
+                                <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
+                                    <path d="M20 4L4 16H9V34H19V24H21V34H31V16H36L20 4Z" fill="#146c43"/>
+                                </svg>
+                            </span>
+                            <span class="mockup-brand-text">RentNest</span>
+                            <span class="mockup-tagline">YOUR TRUSTED PROPERTY ADVISOR</span>
+                        </div>
+
+                        <!-- Phone Frame -->
+                        <div class="smartphone-frame">
+                            <div class="smartphone-screen">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=700&q=80" 
+                                    alt="RentNest Portal Display on Smartphone"
+                                    class="phone-screen-img"
+                                >
+                                <div class="phone-screen-overlay">
+                                    <div class="phone-headline-pill">
+                                        <h3>Bangladesh's Most Trusted Online Property Portal</h3>
+                                    </div>
+                                    <div class="phone-location-tag">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span>Dhaka, Bangladesh</span>
+                                    </div>
+                                    <div class="phone-domain-pill">
+                                        <span>www.rentnest.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Text Content -->
+                <div class="search-text-col">
+                    <h2 class="section-title">About your Search</h2>
+                    <p class="section-paragraph">
+                        Whether you're looking for property for sale in Bangladesh or property for rent, RentNest.com makes searching easy. Use our geolocation mapping feature to root-out your ideal villa, townhouse, or apartment and contact the owners directly. We will help you find your dream house in just a few seconds.
+                    </p>
+                    <p class="section-paragraph">
+                        We offer our clients a wealth of knowledge regarding all aspects of purchasing or renting a home. Whether it is helping you search for your dream home, discussing new Bangladesh real estate developments, or assisting with the rental request process, we would love the opportunity to help. Please feel free to contact us with any questions!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 5. PLATFORM STANDARDS & TRANSPARENCY           -->
+        <!-- ============================================== -->
+        <section class="about-section updates-section">
+            <h2 class="section-title updates-title">RentNest Standards &amp; Operations</h2>
+            <div class="updates-text-block">
+                <p class="section-paragraph">
+                    RentNest operates under a modernized, independent digital rental ecosystem and is committed to upholding the highest standards of integrity in Bangladesh. All property listings, rental inquiries, and agreements are conducted directly between verified landlords and tenants, maintaining transparency and security.
+                </p>
+                <p class="section-paragraph">
+                    Every listing hosted on the platform is validated with accurate specifications, transparent pricing, and direct owner contact information. Our mission remains completely focused on eliminating middlemen friction, preventing fraud, and delivering seamless property rental and management services for Bangladesh.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 6. LATEST PROPERTY LISTING IN BANGLADESH       -->
+        <!-- ============================================== -->
+        <section class="about-section listings-showcase-section">
+            <div class="listings-header-row">
+                <div class="listings-title-wrap">
+                    <h2 class="section-title">Latest Property Listing in Bangladesh</h2>
+                    <div class="listings-filter-pills">
+                        <button type="button" class="filter-btn active" data-filter="all">For Rent</button>
+                    </div>
+                </div>
+                <a href="{% url 'property_list' %}" class="view-all-link">
+                    <span>View All</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <!-- 9-Card Property Grid matching image -->
+            <div class="listings-grid">
+                {% if latest_properties %}
+                    {% for property in latest_properties %}
+                        <div class="property-mini-card">
+                            <div class="card-thumb-wrap">
+                                {% if property.image %}
+                                    <img src="{{ property.image.url }}" alt="{{ property.title }}" class="card-thumb">
+                                {% else %}
+                                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80" alt="{{ property.title }}" class="card-thumb">
+                                {% endif %}
+                                <span class="property-tag-chip">{{ property.get_property_type_display }}</span>
+                            </div>
+                            <div class="card-details-wrap">
+                                <h3 class="card-rent-price">BDT {{ property.monthly_rent|floatformat:0 }} Per Month</h3>
+                                <p class="card-specs">
+                                    {{ property.bedrooms }} Bed {{ property.bathrooms }} Bath &bull; {{ property.title|truncatechars:26 }}
+                                </p>
+                                <p class="card-location">
+                                    <i class="fa-solid fa-location-dot"></i> {{ property.location|truncatechars:32 }}
+                                </p>
+                                <div class="card-footer-action">
+                                    <a href="{% url 'property_detail' property.pk %}" class="btn-card-details">
+                                        VIEW DETAILS
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <!-- Curated fallback cards to ensure a rich 9-card catalog matching the image -->
+                <div class="property-mini-card">
+                    <div class="card-thumb-wrap">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80" alt="Prime 2,000 Sqft Top Floor Commercial" class="card-thumb">
+                        <span class="property-tag-chip">Commercial</span>
+                    </div>
+                    <div class="card-details-wrap">
+                        <h3 class="card-rent-price">BDT 1,70,000 Per Month</h3>
+                        <p class="card-specs">Prime 2,000 Sqft Top Floor Commercial</p>
+                        <p class="card-location"><i class="fa-solid fa-location-dot"></i> Sector 4, Uttara, Dhaka</p>
+                        <div class="card-footer-action">
+                            <a href="{% url 'property_list' %}" class="btn-card-details">VIEW DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-mini-card">
+                    <div class="card-thumb-wrap">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=600&q=80" alt="Executive 3 Bed Luxury Flat" class="card-thumb">
+                        <span class="property-tag-chip">Apartment</span>
+                    </div>
+                    <div class="card-details-wrap">
+                        <h3 class="card-rent-price">BDT 35,000 Per Month</h3>
+                        <p class="card-specs">Spacious 2,200 Sqft | 3 Bed 3 Bath</p>
+                        <p class="card-location"><i class="fa-solid fa-location-dot"></i> Bashundhara R/A, Dhaka</p>
+                        <div class="card-footer-action">
+                            <a href="{% url 'property_list' %}" class="btn-card-details">VIEW DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-mini-card">
+                    <div class="card-thumb-wrap">
+                        <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=600&q=80" alt="High Visibility Open Floor Space" class="card-thumb">
+                        <span class="property-tag-chip">Commercial</span>
+                    </div>
+                    <div class="card-details-wrap">
+                        <h3 class="card-rent-price">BDT 3,50,000 Per Month</h3>
+                        <p class="card-specs">High Visibility 3rd Floor Commercial</p>
+                        <p class="card-location"><i class="fa-solid fa-location-dot"></i> Pragati Sarani, Dhaka</p>
+                        <div class="card-footer-action">
+                            <a href="{% url 'property_list' %}" class="btn-card-details">VIEW DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-mini-card">
+                    <div class="card-thumb-wrap">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Exquisite 3,200 Sqft Furnished Duplex" class="card-thumb">
+                        <span class="property-tag-chip">Duplex</span>
+                    </div>
+                    <div class="card-details-wrap">
+                        <h3 class="card-rent-price">BDT 2,00,000 Per Month</h3>
+                        <p class="card-specs">Exquisite 3,200 Sqft Furnished Duplex</p>
+                        <p class="card-location"><i class="fa-solid fa-location-dot"></i> Baridhara Diplomatic Area, Dhaka</p>
+                        <div class="card-footer-action">
+                            <a href="{% url 'property_list' %}" class="btn-card-details">VIEW DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-mini-card">
+                    <div class="card-thumb-wrap">
+                        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=600&q=80" alt="Single Unit 2,000 Sqft 4 Bed" class="card-thumb">
+                        <span class="property-tag-chip">Apartment</span>
+                    </div>
+                    <div class="card-details-wrap">
+                        <h3 class="card-rent-price">BDT 30,000 Per Month</h3>
+                        <p class="card-specs">Single Unit 2,000 Sqft | 4 Bed Flat</p>
+                        <p class="card-location"><i class="fa-solid fa-location-dot"></i> Block C, Bashundhara R/A, Dhaka</p>
+                        <div class="card-footer-action">
+                            <a href="{% url 'property_list' %}" class="btn-card-details">VIEW DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-mini-card">
+                    <div class="card-thumb-wrap">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80" alt="Brand New Flat for Rent" class="card-thumb">
+                        <span class="property-tag-chip">Apartment</span>
+                    </div>
+                    <div class="card-details-wrap">
+                        <h3 class="card-rent-price">BDT 1,50,000 Per Month</h3>
+                        <p class="card-specs">3,100 Sqft Brand New Flat for Rent</p>
+                        <p class="card-location"><i class="fa-solid fa-location-dot"></i> Road 134, Gulshan 1, Dhaka</p>
+                        <div class="card-footer-action">
+                            <a href="{% url 'property_list' %}" class="btn-card-details">VIEW DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 7. POPULAR AREAS / LOCATIONS DIRECTORY         -->
+        <!-- ============================================== -->
+        <section class="about-section locations-directory-section">
+            <div class="locations-directory-grid">
+                <!-- Column 1 -->
+                <div class="location-col">
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>House in Khulna</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Restaurant in Dhaka Division</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Holiday Apartment in Comilla</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Flats in Dhanmondi</span>
+                    </a>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="location-col">
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Warehouse in Comilla</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Offices in Chittagong</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Commercial in Mohammadpur</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Apartments in Mirpur</span>
+                    </a>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="location-col">
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Agricultural in Barishal</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Commercial in Rajshahi Division</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Hotel in Sylhet Division</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Houses in Uttara</span>
+                    </a>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="location-col">
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Storage in Chattogram</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Residential in Rajshahi</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Offices in Cumilla</span>
+                    </a>
+                    <a href="{% url 'property_list' %}" class="location-item-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Luxury Flats in Gulshan</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+{% endblock content %}

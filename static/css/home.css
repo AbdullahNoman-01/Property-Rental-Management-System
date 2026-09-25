@@ -1438,3 +1438,182 @@ SMALL MOBILE
         font-size: 10px;
     }
 }
+
+/* =====================================================
+   HOMEPAGE INTEGRATED SECTIONS (From Advertise & About Us)
+   ===================================================== */
+
+/* 1. Promo Banner Section */
+.home-promo-banner-section {
+    margin: 64px 0 68px;
+}
+
+.home-promo-banner-section .ad-promo-card {
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Smart Discovery Section */
+.home-discovery-section {
+    margin-bottom: 72px;
+    padding: 48px 44px;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.03);
+}
+
+.home-badge-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: #ecfdf5;
+    border: 1.5px solid #a7f3d0;
+    color: #146c43;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.discovery-perks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 24px 0 28px;
+}
+
+.perk-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.perk-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #f0fdf4;
+    color: #146c43;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(20, 108, 67, 0.1);
+    border: 1px solid #dcfce7;
+}
+
+.perk-info h4 {
+    font-size: 15px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 4px;
+}
+
+.perk-info p {
+    font-size: 13.5px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.btn-discovery-learn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #146c43;
+    color: #ffffff !important;
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 800;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(20, 108, 67, 0.25);
+}
+
+.btn-discovery-learn:hover {
+    background: #0d4a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(20, 108, 67, 0.35);
+}
+
+/* 3. Boost Advantages Section */
+.home-boost-showcase-section {
+    margin-bottom: 72px;
+    padding: 48px 44px;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.03);
+}
+
+.boost-cta-action {
+    margin-top: 28px;
+}
+
+.btn-boost-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #111827;
+    color: #ffffff !important;
+    padding: 13px 26px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 800;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(17, 24, 39, 0.2);
+}
+
+.btn-boost-cta:hover {
+    background: #146c43;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(20, 108, 67, 0.3);
+}
+
+/* 4. Popular Locations Section */
+.home-locations-section {
+    margin: 40px 0 20px;
+    padding: 44px 38px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+}
+
+.locations-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 32px;
+}
+
+.locations-header .section-title {
+    margin-bottom: 8px;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .home-discovery-section,
+    .home-boost-showcase-section {
+        padding: 36px 24px;
+    }
+
+    .home-locations-section {
+        padding: 36px 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    .home-discovery-section,
+    .home-boost-showcase-section,
+    .home-locations-section {
+        padding: 28px 18px;
+        border-radius: 16px;
+    }
+}

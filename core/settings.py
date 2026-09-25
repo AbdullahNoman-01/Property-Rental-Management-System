@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'dashboard',
     'reviews',
     'advertise',
+    'about_us',
 ]
 
 MIDDLEWARE = [

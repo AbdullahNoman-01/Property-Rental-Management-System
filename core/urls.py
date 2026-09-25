@@ -11,6 +11,7 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('reviews/', include('reviews.urls')),
     path('advertise/', include('advertise.urls')),
+    path('about-us/', include('about_us.urls')),
     path('', views.home, name='home'),
 ]
 if settings.DEBUG:

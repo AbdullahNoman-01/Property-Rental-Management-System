@@ -2,10 +2,9 @@
 {% load static %}
 
 {% block extra_css %}
-   <link
-      rel="stylesheet"
-      href="{% static 'css/home.css' %}"
-   >
+   <link rel="stylesheet" href="{% static 'css/home.css' %}">
+   <link rel="stylesheet" href="{% static 'advertise/css/advertise.css' %}">
+   <link rel="stylesheet" href="{% static 'about_us/css/about_us.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
@@ -352,6 +351,329 @@
       {% endfor %}
 
    </div>
+
+   <!-- ============================================== -->
+   <!-- 1. PROMOTIONAL BANNER: RentNest Boost (from Advertise) -->
+   <!-- ============================================== -->
+   <section class="home-promo-banner-section">
+      <div class="ad-promo-card">
+         <!-- Left Text Content -->
+         <div class="promo-text-side">
+            <div class="promo-brand-tag">
+               <span class="brand-bolt-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#146c43" stroke="#146c43">
+                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+               </span>
+               <span class="promo-brand-name">RentNest Boost</span>
+            </div>
+
+            <h2 class="promo-title">READY TO RENT FASTER?</h2>
+            <p class="promo-subtitle">Find verified tenants in less than 7 days with multi-platform property promotion.</p>
+
+            <a href="{% url 'advertise:advertise' %}" class="promo-link-pill">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+               </svg>
+               <span>Explore Boost Packages &rarr;</span>
+            </a>
+         </div>
+
+         <!-- Right Cinematic Property Photo -->
+         <div class="promo-image-side">
+            <img 
+               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" 
+               alt="Luxury Home for Rent in Bangladesh" 
+               class="promo-img"
+            >
+         </div>
+      </div>
+   </section>
+
+   <!-- ============================================== -->
+   <!-- 2. SMART DISCOVERY: Mobile App & Trust (from About Us) -->
+   <!-- ============================================== -->
+   <section class="home-discovery-section">
+      <div class="about-grid-2col search-grid">
+         <!-- Left Column: Smartphone App Mockup -->
+         <div class="search-mockup-col">
+            <div class="app-display-wrapper">
+               <div class="mockup-brand-badge">
+                  <span class="mockup-logo-icon">
+                     <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 4L4 16H9V34H19V24H21V34H31V16H36L20 4Z" fill="#146c43"/>
+                     </svg>
+                  </span>
+                  <span class="mockup-brand-text">RentNest</span>
+                  <span class="mockup-tagline">YOUR TRUSTED PROPERTY ADVISOR</span>
+               </div>
+
+               <div class="smartphone-frame">
+                  <div class="smartphone-screen">
+                     <img 
+                        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=700&q=80" 
+                        alt="RentNest Portal Display on Smartphone"
+                        class="phone-screen-img"
+                     >
+                     <div class="phone-screen-overlay">
+                        <div class="phone-headline-pill">
+                           <h3>Bangladesh's Most Trusted Online Property Portal</h3>
+                        </div>
+                        <div class="phone-location-tag">
+                           <i class="fa-solid fa-location-dot"></i>
+                           <span>Dhaka, Bangladesh</span>
+                        </div>
+                        <div class="phone-domain-pill">
+                           <span>www.rentnest.com</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Right Column: Discover & Trust Features -->
+         <div class="search-text-col">
+            <span class="home-badge-kicker">SMART DISCOVERY</span>
+            <h2 class="section-title">Rent with Complete Confidence</h2>
+            <p class="section-paragraph">
+               Whether you are searching for verified apartments in Dhaka, family residences in Chittagong, or listing your commercial spaces, RentNest makes renting fast, reliable, and transparent. Connect directly with verified owners with zero hidden brokerage fees.
+            </p>
+
+            <div class="discovery-perks-list">
+               <div class="perk-item">
+                  <div class="perk-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div class="perk-info">
+                     <h4>100% Verified Property Listings</h4>
+                     <p>Every listing is checked for authentic specifications, pricing transparency, and actual room photos.</p>
+                  </div>
+               </div>
+
+               <div class="perk-item">
+                  <div class="perk-icon"><i class="fa-solid fa-handshake"></i></div>
+                  <div class="perk-info">
+                     <h4>Direct Owner Communication</h4>
+                     <p>Submit rental requests straight to landlords and track real-time status in your notifications center.</p>
+                  </div>
+               </div>
+
+               <div class="perk-item">
+                  <div class="perk-icon"><i class="fa-solid fa-bolt"></i></div>
+                  <div class="perk-info">
+                     <h4>Priority Campaign Dispatch</h4>
+                     <p>Landlords can maximize property reach across social networks and seal tenancy deals in under 7 days.</p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="discovery-action-row">
+               <a href="{% url 'about_us:about_us' %}" class="btn-discovery-learn">
+                  <span>Learn More About Us</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- ============================================== -->
+   <!-- 3. BOOST ADVANTAGES: Laptop Mockup & Stats (from Advertise) -->
+   <!-- ============================================== -->
+   <section class="home-boost-showcase-section">
+      <div class="ad-features-grid">
+         <!-- Left Visual Column: Laptop mockup + Villa photo + 8,000+ Stat Card -->
+         <div class="ad-visual-column">
+            <div class="visual-card-laptop">
+               <img 
+                  src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80" 
+                  alt="RentNest Portal Display on Laptop" 
+                  class="laptop-display-img"
+               >
+               <div class="laptop-floating-badge">
+                  <span class="live-dot"></span>
+                  <span>Live Campaign: Gulshan-2 Luxury Duplex</span>
+               </div>
+            </div>
+
+            <div class="visual-bottom-row">
+               <div class="visual-villa-box">
+                  <img 
+                     src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80" 
+                     alt="Modern Villa with Pool" 
+                     class="villa-img"
+                  >
+               </div>
+
+               <div class="visual-stat-card">
+                  <h3 class="stat-number">8,000+</h3>
+                  <h4 class="stat-title">Properties Boosted</h4>
+                  <p class="stat-desc">
+                     Attract more qualified tenants effortlessly. We manage targeted campaigns while you seal the deal.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         <!-- Right Column: Marketing Benefits List -->
+         <div class="ad-content-column">
+            <span class="home-badge-kicker">RENTNEST MARKETING</span>
+            <h2 class="ad-section-heading">
+               Drive Quality Leads with Targeted Property Promotion
+            </h2>
+
+            <div class="ad-benefits-list">
+               <div class="benefit-item">
+                  <div class="benefit-icon-box">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="6" r="2"></circle>
+                        <circle cx="12" cy="18" r="2"></circle>
+                     </svg>
+                  </div>
+                  <div class="benefit-text">
+                     <h3 class="benefit-title">Precision Audience Targeting</h3>
+                     <p class="benefit-desc">
+                        Reach serious tenants with data-driven social targeting based on demographics, budget, and neighborhood location.
+                     </p>
+                  </div>
+               </div>
+
+               <div class="benefit-item">
+                  <div class="benefit-icon-box">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                     </svg>
+                  </div>
+                  <div class="benefit-text">
+                     <h3 class="benefit-title">High-Impact Creative Showcases</h3>
+                     <p class="benefit-desc">
+                        Showcase your properties with scroll-stopping imagery, virtual highlights, and sponsored ads across social networks.
+                     </p>
+                  </div>
+               </div>
+
+               <div class="benefit-item">
+                  <div class="benefit-icon-box">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                     </svg>
+                  </div>
+                  <div class="benefit-text">
+                     <h3 class="benefit-title">Direct Inquiries Delivered Instantly</h3>
+                     <p class="benefit-desc">
+                        Receive qualified tenant rental requests directly without middlemen, allowing you to finalize agreements faster.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="boost-cta-action">
+               <a href="{% url 'advertise:advertise' %}#promote-form" class="btn-boost-cta">
+                  <span>Start Property Campaign</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- ============================================== -->
+   <!-- 4. POPULAR LOCATIONS DIRECTORY (from About Us) -->
+   <!-- ============================================== -->
+   <section class="home-locations-section">
+      <div class="locations-header">
+         <span class="home-badge-kicker">EXPLORE BANGLADESH</span>
+         <h2 class="section-title">Popular Rental Locations &amp; Cities</h2>
+         <p class="section-paragraph">Browse thousands of verified apartments, villas, and commercial rentals in prime residential areas.</p>
+      </div>
+
+      <div class="locations-directory-grid">
+         <!-- Column 1 -->
+         <div class="location-col">
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Flats in Dhanmondi</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Apartments in Mirpur</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Houses in Uttara</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Studio Flats in Mohakhali</span>
+            </a>
+         </div>
+
+         <!-- Column 2 -->
+         <div class="location-col">
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Luxury Duplex in Gulshan</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Condos in Banani</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Commercial Space in Motijheel</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Apartments in Bashundhara R/A</span>
+            </a>
+         </div>
+
+         <!-- Column 3 -->
+         <div class="location-col">
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Rental Flats in Chittagong</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Commercial Offices in Agrabad</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Family Houses in Sylhet</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Student Rentals in Khulna</span>
+            </a>
+         </div>
+
+         <!-- Column 4 -->
+         <div class="location-col">
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Office Spaces in Kawran Bazar</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Furnished Flats in Baridhara</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Residential Units in Rajshahi</span>
+            </a>
+            <a href="{% url 'property_list' %}" class="location-item-link">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i>
+               <span>Modern Apartments in Lalmatia</span>
+            </a>
+         </div>
+      </div>
+   </section>
 
 </div>
 {% endblock content %}
