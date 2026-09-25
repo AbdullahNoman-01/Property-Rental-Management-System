@@ -88,6 +88,7 @@ class Notification(models.Model):
         ('REQUEST_ACCEPTED', 'Request Accepted'),
         ('REQUEST_REJECTED', 'Request Rejected'),
         ('REQUEST_CANCELLED', 'Request Cancelled'),
+        ('CAMPAIGN_CONTACTED', 'Campaign Request Contacted'),
     ]
 
     recipient = models.ForeignKey(
@@ -99,13 +100,17 @@ class Notification(models.Model):
     sender = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name='sent_notifications'
+        related_name='sent_notifications',
+        null=True,
+        blank=True
     )
 
     rental_request = models.ForeignKey(
         RentalRequest,
         on_delete=models.CASCADE,
-        related_name='notifications'
+        related_name='notifications',
+        null=True,
+        blank=True
     )
 
     notification_type = models.CharField(

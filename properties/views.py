@@ -436,7 +436,7 @@ def notifications(request):
         'sender',
         'rental_request',
         'rental_request__property'
-    )
+    ).order_by('-created_at')
 
     context = {
         'notifications': notifications,
@@ -460,6 +460,10 @@ def notification_redirect(request, notification_id):
     # Notification read করা
     notification.is_read = True
     notification.save(update_fields=['is_read'])
+
+    # Campaign Contacted notification redirect
+    if notification.notification_type == 'CAMPAIGN_CONTACTED' or not notification.rental_request:
+        return redirect('advertise:advertise')
 
     # User-এর role অনুযায়ী redirect
     if request.user.role == 'TENANT':

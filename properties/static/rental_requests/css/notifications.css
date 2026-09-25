@@ -363,3 +363,28 @@
         font-size: 12px;
     }
 }
+
+/* Campaign Boost Notification Specific */
+.notification-card.unread .campaign-icon {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    color: #146c43;
+    border: 1px solid #a7f3d0;
+    box-shadow: 0 4px 12px rgba(20, 108, 67, 0.15);
+}
+
+.campaign-notice-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-right: 6px;
+    vertical-align: middle;
+}

@@ -10,6 +10,7 @@ urlpatterns = [
     path('properties/', include('properties.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('reviews/', include('reviews.urls')),
+    path('advertise/', include('advertise.urls')),
     path('', views.home, name='home'),
 ]
 if settings.DEBUG:

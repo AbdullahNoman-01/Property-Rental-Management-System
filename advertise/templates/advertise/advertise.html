@@ -1,0 +1,698 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Advertise & Boost Your Property | RentNest{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'advertise/css/advertise.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<main class="advertise-page-container">
+
+    <!-- ============================================== -->
+    <!-- 1. HERO SECTION: Skyline Aerial Banner         -->
+    <!-- ============================================== -->
+    <section class="ad-hero-section">
+        <div class="ad-hero-overlay"></div>
+        <div class="ad-hero-container">
+            <div class="ad-hero-content">
+                <h1 class="ad-hero-title">
+                    Maximize Your Property's<br>
+                    Reach Across Bangladesh
+                </h1>
+                <p class="ad-hero-subtitle">
+                    Promote your listing to the right audience across multiple social platforms – for quicker deals and verified tenants.
+                </p>
+                <div class="ad-hero-action">
+                    <a href="#promote-form" class="btn-hero-promote">
+                        <span>PROMOTE MY PROPERTY</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Wrapper -->
+    <div class="ad-main-body">
+
+        <!-- ============================================== -->
+        <!-- 2. MIDDLE PROMO BANNER: RentNest Boost         -->
+        <!-- ============================================== -->
+        <section class="ad-promo-banner-section">
+            <div class="ad-promo-card">
+                <!-- Left Text Side -->
+                <div class="promo-text-side">
+                    <div class="promo-brand-tag">
+                        <span class="brand-bolt-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#146c43" stroke="#146c43">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </span>
+                        <span class="promo-brand-name">RentNest Boost</span>
+                    </div>
+
+                    <h2 class="promo-title">READY TO RENT FASTER?</h2>
+                    <p class="promo-subtitle">Find verified tenants in less than 7 days with RentNest Boost.</p>
+
+                    <a href="#promote-form" class="promo-link-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span>www.rentnest.com/boost</span>
+                    </a>
+                </div>
+
+                <!-- Right Cinematic Image Side -->
+                <div class="promo-image-side">
+                    <img 
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" 
+                        alt="Luxury Dream House" 
+                        class="promo-img"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 3. MAIN SECTION: Visuals (Left) & Features (Right) -->
+        <!-- ============================================== -->
+        <section class="ad-features-showcase-section">
+            <div class="ad-features-grid">
+
+                <!-- Left Column: Laptop Mockup, Villa Photo & 8000+ Stat -->
+                <div class="ad-visual-column">
+                    <!-- Top Laptop / Device Card -->
+                    <div class="visual-card-laptop">
+                        <img 
+                            src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80" 
+                            alt="RentNest Portal Display on Laptop" 
+                            class="laptop-display-img"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80';"
+                        >
+                        <div class="laptop-floating-badge">
+                            <span class="live-dot"></span>
+                            <span>Live Campaign: Gulshan-2 Luxury Duplex</span>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: Villa Image + Forest Green Stat Card -->
+                    <div class="visual-bottom-row">
+                        <!-- Villa Card -->
+                        <div class="visual-villa-box">
+                            <img 
+                                src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80" 
+                                alt="Modern Villa with Pool" 
+                                class="villa-img"
+                            >
+                        </div>
+
+                        <!-- 8,000+ Stat Card -->
+                        <div class="visual-stat-card">
+                            <h3 class="stat-number">8,000+</h3>
+                            <h4 class="stat-title">Property Boosted</h4>
+                            <p class="stat-desc">
+                                Attract more buyers and tenants effortlessly. We manage everything while you seal the deal.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Features List -->
+                <div class="ad-content-column">
+                    <h2 class="ad-section-heading">
+                        Drive Quality Leads with Targeted Property Ads on Social Media
+                    </h2>
+
+                    <div class="ad-benefits-list">
+
+                        <!-- Item 1: Precision Audience Targeting -->
+                        <div class="benefit-item">
+                            <div class="benefit-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="6"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <line x1="12" y1="2" x2="12" y2="4"></line>
+                                    <line x1="12" y1="20" x2="12" y2="22"></line>
+                                    <line x1="20" y1="12" x2="22" y2="12"></line>
+                                    <line x1="2" y1="12" x2="4" y2="12"></line>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h3 class="benefit-title">Precision Audience Targeting</h3>
+                                <p class="benefit-desc">
+                                    Reach serious buyers and tenants with our data-driven targeting based on demographics, behavior, and location.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: High-Impact Creative Design -->
+                        <div class="benefit-item">
+                            <div class="benefit-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h3 class="benefit-title">High-Impact Creative Design</h3>
+                                <p class="benefit-desc">
+                                    Showcase your listings with scroll-stopping visuals, videos, and ads that showcase your property effectively on Facebook and Instagram.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Multi-Platform Ad Placement -->
+                        <div class="benefit-item">
+                            <div class="benefit-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    <line x1="9" y1="9" x2="15" y2="9"></line>
+                                    <line x1="9" y1="13" x2="13" y2="13"></line>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h3 class="benefit-title">Multi-Platform Ad Placement</h3>
+                                <p class="benefit-desc">
+                                    Maximize visibility by displaying your properties across Facebook, Instagram, and partner networks for wider reach.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: Quality Lead Delivery -->
+                        <div class="benefit-item">
+                            <div class="benefit-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h3 class="benefit-title">Quality Lead Delivery</h3>
+                                <p class="benefit-desc">
+                                    Receive inquiries instantly with no middlemen, no delays, so you can respond faster and close deals quicker.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Item 5: Performance Optimization & Insights -->
+                        <div class="benefit-item">
+                            <div class="benefit-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h3 class="benefit-title">Performance Optimization &amp; Insights</h3>
+                                <p class="benefit-desc">
+                                    We continuously monitor and optimize campaigns to ensure you get the best ROI, with clear reports to track results.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 4. CHITHIR KHAM (LETTER ENVELOPE) CAMPAIGN DISPATCH -->
+        <!-- ============================================== -->
+        <section id="promote-form" class="chithi-section">
+
+            <!-- Flash Messages Notification Banner -->
+            {% if messages %}
+                <div class="chithi-messages-container">
+                    {% for message in messages %}
+                        <div class="chithi-alert chithi-alert-{{ message.tags }}">
+                            <div class="chithi-alert-icon">
+                                {% if 'error' in message.tags or 'warning' in message.tags %}
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                {% else %}
+                                    <i class="fa-solid fa-circle-check"></i>
+                                {% endif %}
+                            </div>
+                            <div class="chithi-alert-content">
+                                <span>{{ message }}</span>
+                            </div>
+                            <button type="button" class="chithi-alert-close" onclick="this.parentElement.remove();">&times;</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="chithi-section-header">
+                <div class="chithi-kicker">
+                    <span class="kicker-seal-icon"><i class="fa-solid fa-envelope-open-text"></i></span>
+                    <span>PRIORITY DISPATCH • Letter Envelope</span>
+                </div>
+                <h2 class="chithi-title">Send Your Campaign Letter to RentNest Specialists</h2>
+                <p class="chithi-subtitle">
+                    Send a letter in an envelope directly to the RentNest Advertising Desk with detailed information about your property. Our specialists will review the details and contact you.
+                </p>
+            </div>
+
+            {% if campaign_success %}
+                <!-- ======================================================== -->
+                <!-- SUCCESS STATE: 3D SEALED ENVELOPE (চিঠির খাম পৌঁছেছে) -->
+                <!-- ======================================================== -->
+                <div class="chithi-success-desk">
+                    <div class="sealed-envelope-card">
+                        <!-- Postal Airmail Edge -->
+                        <div class="airmail-ribbon"></div>
+
+                        <!-- Top Sealed Flap -->
+                        <div class="sealed-top-flap">
+                            <!-- Golden Wax Seal -->
+                            <div class="wax-seal-emblem">
+                                <div class="wax-seal-inner">
+                                    <i class="fa-solid fa-house-chimney"></i>
+                                    <span>SEALED</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Envelope Front Body -->
+                        <div class="sealed-envelope-body">
+                            <!-- Delivery Postmark -->
+                            <div class="postal-delivery-stamp">
+                                <div class="postmark-circle">
+                                    <span class="postmark-city">DHAKA G.P.O.</span>
+                                    <span class="postmark-code">RENTNEST BOOST</span>
+                                    <span class="postmark-date">{{ "now"|date:"d M Y" }}</span>
+                                    <span class="postmark-status">DELIVERED</span>
+                                </div>
+                            </div>
+
+                            <div class="sealed-envelope-content">
+                                <div class="success-badge-pill">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>CAMPAIGN DISPATCH DELIVERED</span>
+                                </div>
+
+                                <h3 class="success-main-title">
+                                    🎉 Your campaign letter has been received at the Admin Desk!
+
+                                </h3>
+
+                                <p class="success-subtext">
+                                    Thank you! Your advertising campaign request letter has been safely delivered to our dedicated marketing specialists.
+                                </p>
+
+                                <!-- Real-time notification highlight -->
+                                <div class="notification-assurance-box">
+                                    <div class="notif-box-icon">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div class="notif-box-text">
+                                        <strong>Admin Notification Update:</strong>
+                                        <p>
+                                            As soon as the admin reviews your campaign letter and contacts you, you’ll receive a real-time notification on the notification bell (🔔) in your profile.
+
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="success-actions-row">
+                                    <a href="{% url 'notifications' %}" class="btn-chithi-notif">
+                                        <i class="fa-solid fa-bell"></i>
+                                        <span>View Notifications</span>
+                                    </a>
+                                    <a href="{% url 'advertise:advertise' %}#promote-form" class="btn-chithi-resubmit">
+                                        <i class="fa-solid fa-envelope-open"></i>
+                                        <span>Send Another</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% else %}
+
+                <!-- ======================================================== -->
+                <!-- ACTIVE FORM: CHITHIR KHAM & LETTER      -->
+                <!-- ======================================================== -->
+                <div class="chithi-desk">
+                    <div id="chithi-envelope-wrapper" class="chithi-envelope-wrapper">
+
+                        <!-- Envelope Top Flap (Folds down on send) -->
+                        <div class="chithi-envelope-flap" id="envelope-flap">
+                            <div class="chithi-flap-wax">
+                                <div class="wax-circle">
+                                    <i class="fa-solid fa-house-chimney"></i>
+                                    <span>BOOST</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- The Letter Paper (Chithi) -->
+                        <div class="chithi-letter-paper" id="letter-paper">
+
+                            <!-- Top Airmail Trim -->
+                            <div class="letter-airmail-trim"></div>
+
+                            <!-- Letterhead with Postage Stamp & Postmark -->
+                            <div class="letter-top-row">
+                                <div class="letterhead-brand">
+                                    <div class="letterhead-logo">
+                                        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+                                            <path d="M20 4L4 16H9V34H19V24H21V34H31V16H36L20 4Z" fill="#146c43"/>
+                                        </svg>
+                                        <div class="brand-text-stack">
+                                            <span class="brand-name">RentNest Boost</span>
+                                            <span class="brand-tagline">Official Advertising Dispatch</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Real Vintage / Modern Postage Stamps -->
+                                <div class="letter-postal-stamps">
+                                    <!-- Scalloped Stamp -->
+                                    <div class="chithi-postage-stamp">
+                                        <div class="stamp-inner">
+                                            <div class="stamp-top-text">BANGLADESH</div>
+                                            <div class="stamp-art">
+                                                <i class="fa-solid fa-bullhorn"></i>
+                                            </div>
+                                            <div class="stamp-val">৳ 0.00 • PRIORITY</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Circular Postmark Stamp -->
+                                    <div class="chithi-postmark">
+                                        <div class="postmark-text-top">DHAKA G.P.O.</div>
+                                        <div class="postmark-date">{{ "now"|date:"d M Y" }}</div>
+                                        <div class="postmark-text-bottom">EXPRESS DISPATCH</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Official Memorandum Dispatch Info -->
+                            <div class="letter-dispatch-info">
+                                <div class="dispatch-meta-item">
+                                    <span class="dispatch-label"><i class="fa-solid fa-inbox"></i> RECIPIENT:</span>
+                                    <span class="dispatch-value">RentNest Campaign &amp; Advertising Desk, Bangladesh</span>
+                                </div>
+
+                                <div class="dispatch-meta-item">
+                                    <span class="dispatch-label"><i class="fa-solid fa-user-pen"></i> SENDER:</span>
+                                    {% if user.is_authenticated %}
+                                        <span class="dispatch-value sender-verified">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <strong>{{ user.get_full_name|default:user.username }}</strong>
+                                            <span class="sender-email">({{ user.email|default:'Connected User' }})</span>
+                                        </span>
+                                    {% else %}
+                                        <span class="dispatch-value sender-unauthenticated">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            <strong>Login Required</strong>
+                                        </span>
+                                    {% endif %}
+                                </div>
+
+                                <div class="dispatch-meta-item">
+                                    <span class="dispatch-label"><i class="fa-solid fa-tag"></i>SUBJECT:</span>
+                                    <span class="dispatch-value">Property Multi-Platform Social Media Advertisement &amp; Lead Campaign</span>
+                                </div>
+                            </div>
+
+                            <!-- AUTHENTICATION GATE IF NOT LOGGED IN -->
+                            {% if not user.is_authenticated %}
+                                <div class="chithi-auth-gate-box">
+                                    <div class="gate-seal-badge">
+                                        <i class="fa-solid fa-envelope-circle-check"></i>
+                                    </div>
+                                    <div class="gate-text-content">
+                                        <h3 class="gate-title">
+                                            Create and connect your account before sending the letter envelope.
+
+                                        </h3>
+                                        <p class="gate-description">
+                                            You cannot send a campaign request without logging in. To send your letter and receive instant notifications on your profile when the admin contacts you, please create an account or log in and connect first.
+
+                                        </p>
+                                        <p class="gate-en-sub">
+                                            You must be logged in to dispatch this campaign letter. Once admin reviews and contacts you, you'll receive real-time notifications in your account!
+                                        </p>
+                                    </div>
+                                    <div class="gate-buttons-stack">
+                                        <a href="{% url 'register' %}" class="btn-gate-register">
+                                            <i class="fa-solid fa-user-plus"></i>
+                                            <span>Create Account (Registration)</span>
+                                        </a>
+                                        <a href="{% url 'login' %}?next={% url 'advertise:advertise' %}#promote-form" class="btn-gate-login">
+                                            <i class="fa-solid fa-right-to-bracket"></i>
+                                            <span>Connect / Log In</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <!-- CAMPAIGN DISPATCH FORM -->
+                            <form 
+                                id="campaign-letter-form" 
+                                class="chithi-form" 
+                                method="post" 
+                                action="{% url 'advertise:advertise' %}#promote-form" 
+                                novalidate
+                            >
+                                {% csrf_token %}
+
+                                {% if form.non_field_errors %}
+                                    <div class="chithi-form-error-banner">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                        <span>{{ form.non_field_errors }}</span>
+                                    </div>
+                                {% endif %}
+
+                                <div class="letter-body-intro">
+                                    <p>
+                                        <strong>Dear RentNest Advertising Team,</strong><br>
+                                        I would like to request an advertising and promotion campaign for my property with the following specifications:
+                                    </p>
+                                </div>
+
+                                <div class="chithi-grid">
+                                    <div class="chithi-field">
+                                        <label class="chithi-label" for="{{ form.full_name.id_for_label }}">
+                                            <i class="fa-solid fa-user"></i> {{ form.full_name.label }} <span class="req">*</span>
+                                        </label>
+                                        {{ form.full_name }}
+                                        {% if form.full_name.errors %}
+                                            <p class="chithi-error">{{ form.full_name.errors.0 }}</p>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="chithi-field">
+                                        <label class="chithi-label" for="{{ form.phone_number.id_for_label }}">
+                                            <i class="fa-solid fa-phone"></i> {{ form.phone_number.label }} <span class="req">*</span>
+                                        </label>
+                                        {{ form.phone_number }}
+                                        {% if form.phone_number.errors %}
+                                            <p class="chithi-error">{{ form.phone_number.errors.0 }}</p>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="chithi-field">
+                                        <label class="chithi-label" for="{{ form.property_location.id_for_label }}">
+                                            <i class="fa-solid fa-location-dot"></i> {{ form.property_location.label }} <span class="req">*</span>
+                                        </label>
+                                        {{ form.property_location }}
+                                        {% if form.property_location.errors %}
+                                            <p class="chithi-error">{{ form.property_location.errors.0 }}</p>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="chithi-field">
+                                        <label class="chithi-label" for="{{ form.campaign_package.id_for_label }}">
+                                            <i class="fa-solid fa-box-archive"></i> {{ form.campaign_package.label }} <span class="req">*</span>
+                                        </label>
+                                        {{ form.campaign_package }}
+                                        {% if form.campaign_package.errors %}
+                                            <p class="chithi-error">{{ form.campaign_package.errors.0 }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="chithi-field chithi-full-width">
+                                    <label class="chithi-label" for="{{ form.property_note.id_for_label }}">
+                                        <i class="fa-solid fa-comment-dots"></i> {{ form.property_note.label }}
+                                    </label>
+                                    {{ form.property_note }}
+                                    {% if form.property_note.errors %}
+                                        <p class="chithi-error">{{ form.property_note.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Signature / Sign-off Line -->
+                                <div class="letter-sign-off">
+                                    <div class="sign-off-text">
+                                        <span>Sincerely yours,</span>
+                                        <div class="sign-line">
+                                            {% if user.is_authenticated %}
+                                                <span class="digital-sign">{{ user.get_full_name|default:user.username }}</span>
+                                            {% else %}
+                                                <span class="digital-sign-placeholder">Sign after connecting account</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="letter-seal-badge">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                        <span>Verified RentNest Dispatch</span>
+                                    </div>
+                                </div>
+
+                                <!-- Action Buttons Row -->
+                                <div class="chithi-submit-container">
+                                    {% if user.is_authenticated %}
+                                        <button type="button" id="btn-submit-chithi" class="btn-send-chithi">
+                                            <span class="send-icon-wrap">
+                                                <i class="fa-solid fa-paper-plane"></i>
+                                            </span>
+                                            <span class="btn-main-text">SEND CAMPAIGN LETTER</span>
+                                            <span class="btn-sub-text">Letter glides into envelope &amp; seals</span>
+                                        </button>
+                                    {% else %}
+                                        <button type="button" id="btn-unauthenticated-notice" class="btn-send-chithi locked" onclick="showAuthNoticeModal();">
+                                            <span class="send-icon-wrap">
+                                                <i class="fa-solid fa-lock"></i>
+                                            </span>
+                                            <span class="btn-main-text">LOGIN REQUIRED TO SEND</span>
+                                            <span class="btn-sub-text">Click to create account or log in first</span>
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </form>
+
+                        </div> <!-- /chithi-letter-paper -->
+
+                        <!-- Envelope Pocket Front (Lower overlay that holds the letter) -->
+                        <div class="chithi-envelope-pocket">
+                            <div class="pocket-fold-left"></div>
+                            <div class="pocket-fold-right"></div>
+                            <div class="pocket-fold-bottom"></div>
+                            <div class="pocket-airmail-edge"></div>
+                            <div class="pocket-brand-label">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>RENTNEST BOOST DISPATCH POCKET/span>
+                            </div>
+                        </div>
+
+                    </div> <!-- /chithi-envelope-wrapper -->
+                </div> <!-- /chithi-desk -->
+
+            {% endif %}
+
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- AUTHENTICATION NOTICE MODAL -->
+        <!-- ======================================================== -->
+        <div id="chithi-auth-modal" class="chithi-modal-backdrop" style="display: none;">
+            <div class="chithi-modal-dialog">
+                <button type="button" class="chithi-modal-close" onclick="closeAuthNoticeModal();">&times;</button>
+                <div class="modal-seal-ring">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+                <h3 class="modal-title">An account is required to send the letter envelope.</h3>
+                <p class="modal-desc">
+                    To send an advertising campaign letter and receive instant notifications on your profile when the admin contacts you, please create an account or log in and connect first.
+
+                </p>
+                <div class="modal-button-stack">
+                    <a href="{% url 'register' %}" class="btn-modal-primary">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>Create New Account</span>
+                    </a>
+                    <a href="{% url 'login' %}?next={% url 'advertise:advertise' %}#promote-form" class="btn-modal-secondary">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        <span>Connect / Log In</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Interactive Envelope Animation Script -->
+<script>
+    function showAuthNoticeModal() {
+        const modal = document.getElementById('chithi-auth-modal');
+        if (modal) {
+            modal.style.display = 'flex';
+        }
+    }
+
+    function closeAuthNoticeModal() {
+        const modal = document.getElementById('chithi-auth-modal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        const modal = document.getElementById('chithi-auth-modal');
+        if (e.target === modal) {
+            closeAuthNoticeModal();
+        }
+    });
+
+    // Chithir Kham (Letter Envelope) submission animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const sendBtn = document.getElementById('btn-submit-chithi');
+        const form = document.getElementById('campaign-letter-form');
+        const envelopeWrapper = document.getElementById('chithi-envelope-wrapper');
+
+        if (sendBtn && form && envelopeWrapper) {
+            sendBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Validate required fields
+                const fullName = form.querySelector('[name="full_name"]');
+                const phone = form.querySelector('[name="phone_number"]');
+                const location = form.querySelector('[name="property_location"]');
+
+                let isValid = true;
+                [fullName, phone, location].forEach(function(field) {
+                    if (field && !field.value.trim()) {
+                        field.style.borderColor = '#dc2626';
+                        field.focus();
+                        isValid = false;
+                    } else if (field) {
+                        field.style.borderColor = '';
+                    }
+                });
+
+                if (!isValid) {
+                    return;
+                }
+
+                // Trigger Envelope folding & insertion animation
+                sendBtn.disabled = true;
+                sendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Inserting the letter into the envelope and sealing it...';
+                
+                envelopeWrapper.classList.add('envelope-closing-animation');
+
+                // Submit form after animation completes
+                setTimeout(function() {
+                    form.submit();
+                }, 900);
+            });
+        }
+    });
+</script>
+{% endblock content %}
+

@@ -71,9 +71,13 @@
 
                         <!-- Notification Icon -->
 
-                        <div class="notification-icon">
+                        <div class="notification-icon {% if notification.notification_type == 'CAMPAIGN_CONTACTED' %}campaign-icon{% endif %}">
 
-                            {% if not notification.is_read %}
+                            {% if notification.notification_type == 'CAMPAIGN_CONTACTED' %}
+
+                                <i class="fa-solid fa-envelope-circle-check"></i>
+
+                            {% elif not notification.is_read %}
 
                                 <i class="fa-solid fa-bell"></i>
 
@@ -93,6 +97,12 @@
                             <div class="notification-top">
 
                                 <div class="notification-message">
+
+                                    {% if notification.notification_type == 'CAMPAIGN_CONTACTED' %}
+                                        <span class="campaign-notice-badge">
+                                            <i class="fa-solid fa-bullhorn"></i> Campaign Update
+                                        </span>
+                                    {% endif %}
 
                                     {{ notification.message }}
 
