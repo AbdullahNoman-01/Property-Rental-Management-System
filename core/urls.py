@@ -9,6 +9,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('properties/', include('properties.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('reviews/', include('reviews.urls')),
     path('', views.home, name='home'),
 ]
 if settings.DEBUG:

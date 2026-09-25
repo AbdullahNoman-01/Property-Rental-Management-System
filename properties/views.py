@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Property, RentalRequest , Notification
+from reviews.models import Review
 from .forms import PropertyForm, RentalRequestForm
 from django.contrib import messages
 
@@ -54,13 +55,45 @@ def property_list(request):
 
 @login_required
 def property_detail(request, pk):
-   property = get_object_or_404(Property.objects.select_related('owner'),pk=pk)
 
-   return render(
-      request,
-      'properties/property_details.html',
-      {'property': property}
-   )
+    property = get_object_or_404(
+        Property.objects.select_related('owner'),
+        pk=pk
+    )
+
+    reviews = Review.objects.filter(
+        property=property
+    ).select_related('tenant')
+
+    can_review = False
+
+    if request.user.role == 'TENANT':
+
+        accepted_request = RentalRequest.objects.filter(
+            property=property,
+            tenant=request.user,
+            status='ACCEPTED'
+        ).exists()
+
+        already_reviewed = Review.objects.filter(
+            property=property,
+            tenant=request.user
+        ).exists()
+
+        can_review = (
+            accepted_request and
+            not already_reviewed
+        )
+
+    return render(
+        request,
+        'properties/property_details.html',
+        {
+            'property': property,
+            'reviews': reviews,
+            'can_review': can_review,
+        }
+    )
 
 
 @login_required

@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Write a Review | RentNest{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'reviews/css/create_review.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="review-page">
+
+    <div class="review-wrapper">
+
+        <!-- ================= LEFT INFO ================= -->
+        <div class="review-intro">
+
+            <div class="intro-icon">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <span class="intro-label">
+                Share Your Experience
+            </span>
+
+            <h1>
+                How was your<br>
+                <span>rental experience?</span>
+            </h1>
+
+            <p>
+                Your feedback helps other tenants make better
+                decisions and helps property owners improve their service.
+            </p>
+
+            <div class="review-benefits">
+
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <strong>Help other tenants</strong>
+                        <span>Share your honest experience.</span>
+                    </div>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-message"></i>
+                    </div>
+
+                    <div>
+                        <strong>Give useful feedback</strong>
+                        <span>Your opinion really matters.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= REVIEW CARD ================= -->
+        <div class="review-card">
+
+            <div class="review-card-header">
+
+                <span class="form-label-small">
+                    PROPERTY REVIEW
+                </span>
+
+                <h2>Write Your Review</h2>
+
+                <p>
+                    Tell us what you think about this property.
+                </p>
+
+            </div>
+
+
+            <!-- Property Preview -->
+            <div class="property-preview">
+
+                <div class="property-preview-icon">
+                    {% if property.image %}
+                        <img
+                            src="{{ property.image.url }}"
+                            alt="{{ property.title }}"
+                        >
+                    {% else %}
+                        <i class="fa-solid fa-house"></i>
+                    {% endif %}
+                </div>
+
+                <div class="property-preview-info">
+
+                    <span>Reviewing</span>
+
+                    <h3>
+                        {{ property.title }}
+                    </h3>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        {{ property.location }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <!-- ================= RATING ================= -->
+                <div class="form-group rating-group">
+
+                    <label class="form-label-custom">
+                        Your Rating
+                    </label>
+
+                    <p class="form-help">
+                        How would you rate this property?
+                    </p>
+
+                    <div class="rating-box">
+
+                        {{ form.rating }}
+
+                    </div>
+
+                    {% if form.rating.errors %}
+                        <div class="form-error">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            {{ form.rating.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- ================= COMMENT ================= -->
+                <div class="form-group">
+
+                    <div class="label-row">
+
+                        <label class="form-label-custom">
+                            Your Comment
+                        </label>
+
+                        <span class="optional-text">
+                            Optional
+                        </span>
+
+                    </div>
+
+                    <textarea
+                        name="comment"
+                        id="id_comment"
+                        class="review-textarea"
+                        rows="6"
+                        placeholder="Share your experience with this property..."
+                    >{{ form.comment.value|default:'' }}</textarea>
+
+                    {% if form.comment.errors %}
+                        <div class="form-error">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            {{ form.comment.errors }}
+                        </div>
+                    {% endif %}
+
+                    <div class="textarea-footer">
+                        <span>
+                            Be honest and respectful in your review.
+                        </span>
+
+                        <span id="charCount">0 characters</span>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= ACTIONS ================= -->
+                <div class="review-actions">
+
+                    <a
+                        href="{% url 'property_detail' property.id %}"
+                        class="cancel-review-btn"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="submit-review-btn"
+                    >
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Submit Review
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    const commentBox = document.getElementById("id_comment");
+    const charCount = document.getElementById("charCount");
+
+    function updateCharCount() {
+        if (commentBox && charCount) {
+            const count = commentBox.value.length;
+            charCount.textContent = count + " characters";
+        }
+    }
+
+    if (commentBox) {
+        commentBox.addEventListener("input", updateCharCount);
+        updateCharCount();
+    }
+</script>
+
+{% endblock %}
